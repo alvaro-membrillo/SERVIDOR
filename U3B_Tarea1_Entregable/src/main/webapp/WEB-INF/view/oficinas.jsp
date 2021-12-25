@@ -10,36 +10,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container mt-5">
-		<jsp:include page="include/barra.jsp" />
-		<div class="row justify-content-center mt-5">
-			<div class="col-6">
-				<!-- Solo saco el formulario de login si no tengo sesion -->
-				<c:if test="${sessionScope.usuario==null}">
-					<form method="post">
-						<label for="usuario" class="form-label">Oficina</label>
-						
-						<select name="cities">
-						<c:forEach items="${oficinas}" var="o">
-							<option>${o.city}</option>
-						</c:forEach>
-						</select>
-						
-						<input type="text" class="form-control" id="usuario" name="usuario"
-							required> <label for="password" class="form-label mt-3">Password</label>
-						
-						<input type="submit" class="btn btn-primary w-100 mt-3"
-							value="OBTENER DATOS" />
-					</form>
-					<p>DATOS DE LA OFICINA DE SAN FRANCISCO</p>
-					<p class="text-primary text-center mt-3">
-						<a href="Register">¿No tienes cuenta? Regístrate</a>
-					</p>
-				</c:if>
-				<c:if test="${sessionScope.usuario!=null}">
-					<img class="img-fluid" src="img/portada.jpg" />
-				</c:if>
-			</div>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<form method="post" class="d-flex">
+				<input name="busqueda" class="form-control me-2" type="search"
+					placeholder="Search" />
+				<button class="btn btn-outline-success" type="submit">Buscar</button>
+			</form>
+		</nav>
+		<div class="row justiy-content-center">
+			<c:choose>
+				<c:when test="${oficinas!=null and oficinas.size()>0}">
+
+					<c:forEach items="${oficinas}" var="ofi">
+						<ul>
+							<li>${ofi.officeCode}</li>
+							<li>${ofi.city}</li>
+							<li>${ofi.addressLine1}</li>
+							<li>${ofi.addressLine2}</li>
+							<li>${ofi.state}</li>
+						</ul>
+					</c:forEach>
+
+
+				</c:when>
+				<c:when test="${employees!=null and employees.size()==0}">
+					<p class="text-danger">NO HAY RESULTADOS</p>
+				</c:when>
+
+			</c:choose>
 		</div>
 	</div>
 </body>
