@@ -10,7 +10,6 @@ import org.iesalixar.servidor.model.Usuario;
 
 public class DAOUsuarioImpl implements DAOUsuario {
 
-
 	public DAOUsuarioImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,11 +24,11 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 			String sql = "select * from usuarios where usuario=?";
 			PoolDB pool = new PoolDB();
-			
+
 			con = pool.getConnection();
-			
+
 			PreparedStatement statement = con.prepareStatement(sql);
-			
+
 			statement.setString(1, nombre);
 
 			ResultSet rs = statement.executeQuery();
@@ -38,11 +37,11 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 				usuario = new Usuario();
 				usuario.setUsuario(rs.getString("usuario"));
-				usuario.setPassword(rs.getString("password"));
 				usuario.setEmail(rs.getString("email"));
+				usuario.setPassword(rs.getString("password"));
 				usuario.setRole(rs.getString("role"));
-				usuario.setNombre(rs.getString("firstName"));
-				usuario.setApellidos(rs.getString("lastName"));
+				usuario.setFirstName(rs.getString("firstName"));
+				usuario.setLastName(rs.getString("lastName"));
 
 			}
 
@@ -65,21 +64,26 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 			String sql = "insert into usuarios values(?,?,?,?,?,?)";
 			PoolDB pool = new PoolDB();
-			PreparedStatement statement = pool.getConnection().prepareStatement(sql);
-			
+			con = pool.getConnection();
+			PreparedStatement statement = con.prepareStatement(sql);
+
 			statement.setString(1, usuario.getUsuario());
-			statement.setString(3, usuario.getPassword());
 			statement.setString(2, usuario.getEmail());
+			statement.setString(3, usuario.getPassword());
 			statement.setString(4, usuario.getRole());
-			statement.setString(5, usuario.getNombre());
-			statement.setString(6, usuario.getApellidos());
+			statement.setString(5, usuario.getFirstName());
+			statement.setString(6, usuario.getLastName());
 
 			resultado = statement.executeUpdate();
 
-			con.close();
-
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException ex) {
+				System.out.println(ex.getMessage());
+			}
 		}
 
 		return (resultado == 0 ? false : true);

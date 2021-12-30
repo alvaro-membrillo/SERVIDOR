@@ -49,6 +49,8 @@ public class InicioServlet extends HttpServlet {
 
 		String usuario = request.getParameter("usuario");
 		String password = request.getParameter("password");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
 
 		DAOUsuarioImpl dao = new DAOUsuarioImpl();
 
@@ -63,6 +65,8 @@ public class InicioServlet extends HttpServlet {
 					HttpSession sesion = request.getSession();
 
 					sesion.setAttribute("usuario", user.getUsuario());
+					sesion.setAttribute("firstName", user.getFirstName());
+					sesion.setAttribute("lastName", user.getLastName());
 					sesion.setAttribute("email", user.getEmail());
 					sesion.setAttribute("rol", user.getRole());
 

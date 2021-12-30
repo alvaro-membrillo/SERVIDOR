@@ -14,19 +14,22 @@
 		<div class="row justify-content-center mt-5">
 			<div class="col-6">
 				<form method="post">
-					<label for="usuario" class="form-label mt-3">Usuario</label> <input
-						type="text" class="form-control" id="usuario" name="usuario"
-						required> <label for="nombre" class="form-label mt-3">Nombre</label>
-					<input type="text" class="form-control" id="nombre" name="nombre"
-						required> <label for="apellidos" class="form-label mt-3">Apellidos</label>
-					<input type="text" class="form-control" id="apellidos"
-						name="apellidos" required> <label for="email"
-						class="form-label mt-3">Email</label> <input type="email"
-						class="form-control" id="email" name="email" required> <label
-						for="password" class="form-label mt-3">Password</label> <input
-						type="password" class="form-control" id="password" name="password"
-						required> <input type="submit"
-						class="btn btn-primary w-100 mt-3" value="REGISTRAR" />
+					<label for="usuario" class="form-label mt-3">Usuario</label>
+					<input type="text" class="form-control" id="usuario" name="usuario" required>
+					
+					<label for="firstName" class="form-label mt-3">Nombre</label>
+					<input type="text" class="form-control" id="firstName" name="firstName" required>
+					
+					<label for="lastName" class="form-label mt-3">Apellidos</label>
+					<input type="text" class="form-control" id="lastName" name="lastName" required>
+					
+					<label for="email" class="form-label mt-3">Email</label>
+					<input type="email" class="form-control" id="email" name="email" required>
+					
+					<label for="password" class="form-label mt-3">Password</label>
+					<input type="password" class="form-control" id="password" name="password" required>
+					
+					<input type="submit" class="btn btn-primary w-100 mt-3" value="REGISTRAR" />
 				</form>
 			</div>
 		</div>

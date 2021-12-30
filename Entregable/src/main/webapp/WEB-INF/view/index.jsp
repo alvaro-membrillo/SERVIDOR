@@ -28,7 +28,7 @@
 						value="ENTRAR" />
 				</form>
 				<p class="text-primary text-center mt-3">
-					<a href="Register">¿No tienes cuenta?. Regístrate</a>
+					<a href="Register">¿No tienes cuenta? Regístrate</a>
 				</p>
 			</c:if>
 			<c:if test="${sessionScope.usuario!=null}">
