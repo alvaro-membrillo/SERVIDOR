@@ -8,8 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.iesalixar.servidor.dao.DAOProductLinesImpl;
 import org.iesalixar.servidor.dao.DAOUsuarioImpl;
+import org.iesalixar.servidor.model.Usuario;
+import org.iesalixar.servidor.utils.PasswordHashGenerator;
 
 /**
  * Servlet implementation class InicioServlet
@@ -17,38 +23,37 @@ import org.iesalixar.servidor.dao.DAOUsuarioImpl;
 @WebServlet("/InicioServlet")
 public class InicioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InicioServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getRequestDispatcher(request.getContextPath()+"WEB-INF/view/index.html");
+	public InicioServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		DAOProductLinesImpl dao = new DAOProductLinesImpl();
 		
-		DAOUsuarioImpl dao = new DAOUsuarioImpl();
+		request.setAttribute("categorias", dao.getCategorias());
+
+		request.getRequestDispatcher("WEB-INF/view/home.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
-		try {
-			
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
+		doGet(request, response);
 	}
 
 }
