@@ -1,0 +1,5 @@
+package org.iesalixar.servidor.repository;
+
+public interface AlumnoRepository {
+
+}

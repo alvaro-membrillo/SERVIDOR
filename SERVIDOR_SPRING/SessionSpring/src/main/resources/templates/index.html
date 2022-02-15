@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="/fragments/bootstrap::head(title='Login')">
+<body>
+	<div class="container mt-5">
+		<div class="row justify-content-center mt-5">
+			<div class="col-8">
+				<h1>Login</h1>
+				<form th:action="@{/}" th:object="${usuario}" method="post">
+					<label for="name">Usuario</label>
+					<input type="text" class="form-control mt-3" th:field="*{username}" required/> <br />
+					<label for="password">Password</label>
+					<input type="password" class="form-control mt-3" th:field="*{password}" required/> <br />
+					<button type="submit" class="btn btn-primary w-100">Entrar</button>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

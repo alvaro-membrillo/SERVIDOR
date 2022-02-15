@@ -1,0 +1,6 @@
+package org.iesalixar.servidor.services;
+
+@Service
+public class AlumnoServiceImpl implements AlumnoService {
+
+}

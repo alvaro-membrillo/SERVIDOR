@@ -1,0 +1,7 @@
+package org.iesalixar.servidor.services;
+
+public interface UsuarioService {
+	
+	public Usuario insertUsuario(Usuario usuario);
+
+}

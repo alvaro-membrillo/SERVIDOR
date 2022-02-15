@@ -1,0 +1,6 @@
+package org.iesalixar.servidor;
+
+@Configuration
+public class SpringSecurity {
+
+}

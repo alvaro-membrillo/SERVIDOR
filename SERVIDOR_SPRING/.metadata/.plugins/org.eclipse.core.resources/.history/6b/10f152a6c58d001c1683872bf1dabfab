@@ -1,0 +1,16 @@
+package org.iesalixar.servidor.services;
+
+import java.util.List;
+
+import org.iesalixar.servidor.model.Asignatura;
+
+@Service
+public class AsignaturaServiceImpl implements AsignaturaService {
+
+	@Override
+	public List<Asignatura> getAllAsignaturas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

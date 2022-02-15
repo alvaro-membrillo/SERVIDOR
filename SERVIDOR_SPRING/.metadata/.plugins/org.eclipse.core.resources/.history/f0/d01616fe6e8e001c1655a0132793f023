@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Departments')"></head>
+<body>
+
+</body>
+</html>

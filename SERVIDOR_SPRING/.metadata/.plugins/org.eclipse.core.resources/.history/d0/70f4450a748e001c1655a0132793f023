@@ -1,0 +1,19 @@
+package org.iesalixar.servidor.services;
+
+import java.util.List;
+
+import org.iesalixar.servidor.model.Alumno;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AlumnoServiceImpl implements AlumnoService {
+
+	@Override
+	public List<Alumno> getAllAlumnos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+}

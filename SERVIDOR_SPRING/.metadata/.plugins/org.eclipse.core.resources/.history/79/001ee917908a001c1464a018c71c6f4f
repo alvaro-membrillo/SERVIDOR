@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Usuario')"></head>
+<body>
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+			<header th:insert="fragments/parts::menu"></header>
+			<div class="col-10 mt-5 mb-5">
+				<h1>Usuario</h1>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

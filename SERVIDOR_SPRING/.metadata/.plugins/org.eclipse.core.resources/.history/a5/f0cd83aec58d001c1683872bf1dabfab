@@ -1,0 +1,20 @@
+package org.iesalixar.servidor.services;
+
+import java.util.List;
+
+import org.iesalixar.servidor.model.Asignatura;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AsignaturaServiceImpl implements AsignaturaService {
+	
+	@Autowired
+	AsignaturaRepository asignaturaRepo;
+	
+	@Override
+	public List<Asignatura> getAllAsignaturas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

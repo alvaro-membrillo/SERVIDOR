@@ -1,0 +1,6 @@
+package org.iesalixar.servidor.services;
+
+@Service
+public class DepartamentoServiceImpl implements DepartamentoService {
+
+}

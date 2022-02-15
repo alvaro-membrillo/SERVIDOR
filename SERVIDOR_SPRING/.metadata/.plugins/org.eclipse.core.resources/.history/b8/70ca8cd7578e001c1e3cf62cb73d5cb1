@@ -1,0 +1,8 @@
+package org.iesalixar.servidor.services;
+
+@Service
+public class AsignaturaServiceImpl implements AsignaturaService {
+	
+	
+	
+}

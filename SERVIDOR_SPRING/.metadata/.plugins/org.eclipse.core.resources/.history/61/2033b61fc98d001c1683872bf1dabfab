@@ -1,0 +1,6 @@
+package org.iesalixar.servidor.services;
+
+public interface DepartamentoService {
+	
+	public List<Departamento> getAllDepartments();
+}

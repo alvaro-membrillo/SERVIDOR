@@ -1,0 +1,20 @@
+package org.iesalixar.servidor;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringsecroleauthApplication {
+	
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+		messageSource.setBasename("locale/messages");
+		messageSource.setDefaultEncoding("UTF-8");
+		return messageSource;
+	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(SpringsecroleauthApplication.class, args);
+	}
+	
+}

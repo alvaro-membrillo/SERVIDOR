@@ -1,0 +1,6 @@
+package org.iesalixar.servidor.repository;
+
+@Repository
+public class DepartamentoRepository {
+
+}

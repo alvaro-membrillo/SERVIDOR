@@ -1,0 +1,7 @@
+package org.iesalixar.servidor.services;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public class JPAUserDetailsService implements UserDetailsService {
+
+}

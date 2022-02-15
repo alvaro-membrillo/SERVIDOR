@@ -1,0 +1,11 @@
+package org.iesalixar.servidor.model;
+
+import javax.persistence.Entity;
+
+@Entity
+@Table(name="usuario")
+public class Usuario {
+	
+	
+	
+}
