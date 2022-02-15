@@ -1,7 +1,0 @@
-package org.iesalixar.servidor.model;
-
-@Entity
-@Table(name="usuario")
-public class Usuario {
-
-}

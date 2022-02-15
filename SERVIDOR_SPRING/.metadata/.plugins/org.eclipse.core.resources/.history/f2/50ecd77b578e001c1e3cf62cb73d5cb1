@@ -1,6 +1,0 @@
-package org.iesalixar.servidor.services;
-
-@Service
-public class JPAUserDetailsService implements UserDetailsService{
-
-}

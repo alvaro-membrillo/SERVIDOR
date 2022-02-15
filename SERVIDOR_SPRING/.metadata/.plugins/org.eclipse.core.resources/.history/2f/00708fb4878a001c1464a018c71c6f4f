@@ -1,6 +1,0 @@
-package org.iesalixar.servidor;
-
-@SpringBootApplication
-public class SpringsecroleauthApplication {
-
-}

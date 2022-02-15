@@ -1,9 +1,0 @@
-package org.iesalixar.servidor.services;
-
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.stereotype.Service;
-
-@Service
-public class JPAUserDetailsService implements UserDetailsService {
-
-}

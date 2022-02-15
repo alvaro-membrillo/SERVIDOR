@@ -1,6 +1,0 @@
-package org.iesalixar.servidor.repository;
-
-@Repository
-public interface DepartamentoRepository {
-
-}

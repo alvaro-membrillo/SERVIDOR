@@ -1,7 +1,0 @@
-<!DOCTYPE html>
-<html>
-<head th:replace="fragments/bootstrap::head(title='Usuario')"></head>
-<body>
-	<h1>Usuario</h1>
-</body>
-</html>

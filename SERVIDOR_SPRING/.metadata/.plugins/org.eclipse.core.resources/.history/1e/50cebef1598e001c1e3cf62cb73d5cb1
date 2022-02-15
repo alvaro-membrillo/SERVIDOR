@@ -1,7 +1,0 @@
-package org.iesalixar.servidor;
-
-public class ServletInitializer extends SpringBootServletInitializer {
-	
-	
-
-}

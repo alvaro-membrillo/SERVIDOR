@@ -1,5 +1,0 @@
-package org.iesalixar.servidor.repository;
-
-public interface AsignaturaRepository extends JpaRepository<Asignatura,Long> {
-
-}

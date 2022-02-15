@@ -1,7 +1,0 @@
-package org.iesalixar.servidor.services;
-
-public interface AlumnoService {
-	
-	public List<Alumno> getAllAlumno();
-	
-}

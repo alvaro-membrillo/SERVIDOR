@@ -1,8 +1,0 @@
-package org.iesalixar.servidor.controller;
-
-@Controller
-public class DepartamentoController {
-	
-	
-	
-}

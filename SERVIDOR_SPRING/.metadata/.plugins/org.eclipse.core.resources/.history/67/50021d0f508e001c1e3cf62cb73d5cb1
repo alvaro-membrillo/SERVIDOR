@@ -1,9 +1,0 @@
-package org.iesalixar.servidor.repository;
-
-import org.iesalixar.servidor.model.Usuario;
-
-public class UsuarioRepository extends JpaRepository<Usuario,Long>{
-	
-	public Usuario findByUserName(String userName);
-
-}
