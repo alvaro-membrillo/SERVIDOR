@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="/home/alvaro/Escritorio/Desarrollo_Web_Entorno_Servidor/U5_ORM_Hibernate/Empresas"/>
+			<item value="/home/alvaro/SERVIDOR/EjemploBasicoHibernate"/>
+			<item value="/home/alvaro/SERVIDOR/HibernateBasicsHistorial"/>
+			<item value="/home/alvaro/SERVIDOR/HibernateBasics"/>
+			<item value="/home/alvaro/Descargas/Servidor2022-main/Practicas Examen/E3B"/>
+			<item value="/home/alvaro/SERVIDOR"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="/home/alvaro/SERVIDOR/HibernateBasics"/>
+			<item value="/home/alvaro/SERVIDOR/HibernateManyToMany/resources/hibernate.cfg.xml"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="org.iesalixar.servidor"/>
+			<item value="org.iesalixar.servidor.hibernate"/>
+		</list>
+		<list key="name">
+			<item value="EntregableHibernate"/>
+			<item value="VehiculoHibernate"/>
+			<item value="EjemploBasicoHibernate"/>
+			<item value="EmpresaHibernate"/>
+			<item value="ingInversa"/>
+		</list>
+		<list key="artifactId">
+			<item value="EntregableHibernate"/>
+			<item value="VehiculoHibernate"/>
+			<item value="EjemploBasicoHibernate"/>
+			<item value="EmpresaHibernate"/>
+			<item value="hibernate"/>
+			<item value="ingInversa"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="org.iesalixar.servidor"/>
+		</list>
+		<list key="name">
+			<item value="HibernateManyToMany"/>
+			<item value="IntentoTrimestral"/>
+			<item value="GuiaRecuperacion"/>
+			<item value="RecuperacionPrimeraEv"/>
+			<item value="IntentoEntregable"/>
+			<item value="HibernatePersonaHistorial"/>
+			<item value="PortatilEntregable"/>
+			<item value="ClassicModels"/>
+			<item value="RepasoEntregable"/>
+			<item value="RepasoExamen"/>
+			<item value="Examen"/>
+			<item value="Entregable"/>
+		</list>
+		<list key="artifactId">
+			<item value="HibernateManyToMany"/>
+			<item value="IntentoTrimestral"/>
+			<item value="GuiaRecuperacion"/>
+			<item value="RecuperacionPrimeraEv"/>
+			<item value="IntentoEntregable"/>
+			<item value="HibernatePersonaHistorial"/>
+			<item value="PortatilEntregable"/>
+			<item value="ClassicModels"/>
+			<item value="RepasoEntregable"/>
+			<item value="RepasoExamen"/>
+			<item value="Examen"/>
+			<item value="Entregable"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

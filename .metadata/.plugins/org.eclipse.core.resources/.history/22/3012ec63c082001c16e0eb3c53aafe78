@@ -1,0 +1,114 @@
+package org.iesalixar.servidor.model;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "posts")
+public class Post implements Serializable {
+
+	@Id
+	private int id;
+
+	@Column
+	private String title;
+	@Column
+	private String content;
+	@Column
+	private Date date;
+
+	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Comment> valoracion = new HashSet();
+
+	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Comment> comment = new HashSet();
+
+	@ManyToOne
+	private User user;
+
+	// MÉTODOS HELPERS
+	public void addSede(final Sede sede) {
+		this.sedes.add(sede);
+		sede.getDepartamentos().add(this);
+	}
+
+	public void removeSede(final Sede sede) {
+		this.sedes.remove(sede);
+		sede.getDepartamentos().remove(this);
+	}
+
+	public Post() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Post(int id, String title, String content, Date date) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.date = date;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Post other = (Post) obj;
+
+		return Objects.equals(title, other.title);
+	}
+
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", title=" + title + ", content=" + content + ", date=" + date + "]";
+	}
+
+}

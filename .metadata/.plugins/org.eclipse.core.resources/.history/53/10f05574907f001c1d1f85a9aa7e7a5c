@@ -1,0 +1,9 @@
+package org.iesalixar.servidor.hibernate.services;
+
+import org.iesalixar.servidor.hibernate.model.Vehiculo;
+
+public interface VehiculoServices {
+	
+	public Vehiculo searchByMatricula();
+	
+}

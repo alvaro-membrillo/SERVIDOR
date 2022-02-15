@@ -1,0 +1,44 @@
+package org.iesalixar.servidor.hibernate.utils.dao;
+
+import java.util.List;
+
+public class GenericDAOImpl<T> implements GenericDAO<T> {
+
+	// Tipo de la clase Genérica
+	private Class<T> entityClass;
+
+	// Sesión para obtener la conexión a la base de datos.
+	private Session session;
+
+	public GenericDAOImpl(Session session) {
+		setEntityClass(
+				(Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+		this.session = session;
+	}
+
+	public void insert(T objetT) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void update(T objectT) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(T objectT) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public T searchById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<T> searchAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

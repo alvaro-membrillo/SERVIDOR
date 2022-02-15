@@ -1,0 +1,7 @@
+package org.iesalixar.servidor.dao;
+
+import org.iesalixar.servidor.utils.dao.GenericDAOImpl;
+
+public class VehiculoDAOImpl extends GenericDAOImpl<Vehiculos> implements VehiculoDAO {
+
+}

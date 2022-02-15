@@ -1,0 +1,10 @@
+package org.iesalixar.servidor.dao;
+
+import org.iesalixar.servidor.hibernate.utils.dao.GenericDAO;
+import org.iesalixar.servidor.model.Vehiculo;
+
+public interface MarcaDAO extends GenericDAO<Vehiculo> {
+	
+	
+
+}

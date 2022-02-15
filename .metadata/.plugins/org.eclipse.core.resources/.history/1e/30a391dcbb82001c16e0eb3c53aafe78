@@ -1,0 +1,10 @@
+package org.iesalixar.servidor.model;
+
+import java.io.Serializable;
+
+public class ValoracionId implements Serializable {
+	
+	@Id
+	private int id;
+
+}

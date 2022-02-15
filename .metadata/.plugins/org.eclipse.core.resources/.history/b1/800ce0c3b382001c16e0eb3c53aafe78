@@ -1,0 +1,15 @@
+package org.iesalixar.servidor.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "userPost")
+public class UserPost implements Serializable {
+
+	@Column
+	private double puntuacion
+	
+}

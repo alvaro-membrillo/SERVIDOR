@@ -1,0 +1,10 @@
+package org.iesalixar.servidor.dao;
+
+import org.iesalixar.servidor.model.Comment;
+import org.iesalixar.servidor.utils.dao.GenericDAO;
+
+public interface PostDAO extends GenericDAO<Comment> {
+	
+	public List<Post> searchTitle(Usuario usuario)
+
+}

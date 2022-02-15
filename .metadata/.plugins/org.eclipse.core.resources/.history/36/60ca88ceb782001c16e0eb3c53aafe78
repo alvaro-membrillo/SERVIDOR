@@ -1,0 +1,18 @@
+package org.iesalixar.servidor.dao;
+
+import org.hibernate.Session;
+import org.iesalixar.servidor.model.Comments;
+import org.iesalixar.servidor.utils.dao.GenericDAOImpl;
+
+public class CommentDAOImpl extends GenericDAOImpl<Comments> implements CommentDAO {
+	
+	private Session session;
+
+	public CommentDAOImpl(Session session) {
+		super(session);
+		this.session = session;
+	}
+	
+	
+	
+}

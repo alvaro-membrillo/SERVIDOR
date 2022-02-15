@@ -1,0 +1,7 @@
+package org.iesalixar.servidor.model;
+
+@Entity
+@Table(name = "comments")
+public class Comments implements Serializable {
+
+}

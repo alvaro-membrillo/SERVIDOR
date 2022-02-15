@@ -1,0 +1,5 @@
+package org.iesalixar.servidor.hibernate.services;
+
+public interface MarcaServices {
+
+}

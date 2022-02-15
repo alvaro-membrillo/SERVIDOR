@@ -1,0 +1,9 @@
+package org.iesalixar.servidor.hibernate.model;
+
+import java.io.Serializable;
+
+@Entity
+@Table(name="Vehiculo")
+public class Vehiculo implements Serializable {
+
+}

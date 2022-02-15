@@ -1,0 +1,84 @@
+package org.iesalixar.servidor.model;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "userPost")
+public class Valoracion implements Serializable {
+
+	@Id
+	@ManyToMany
+	@JoinColumn(name = "user_id", insertable = false, updatable = false)
+	private User user;
+
+	@Id
+	@ManyToMany
+	@JoinColumn(name = "post_id", insertable = false, updatable = false)
+	private Post post;
+
+	@Column
+	private int puntuacion;
+
+	public Valoracion() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Valoracion(User user, Post post, int puntuacion) {
+		super();
+		this.user = user;
+		this.post = post;
+		this.puntuacion = puntuacion;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
+	public int getPuntuacion() {
+		return puntuacion;
+	}
+
+	public void setPuntuacion(int puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Valoracion other = (Valoracion) obj;
+
+		return Objects.equals(user, other.user) && Objects.equals(post, other.post);
+	}
+
+	@Override
+	public String toString() {
+		return "UserPost [user=" + user + ", post=" + post + ", puntuacion=" + puntuacion + "]";
+	}
+
+}

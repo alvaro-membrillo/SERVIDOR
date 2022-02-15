@@ -1,0 +1,15 @@
+package org.iesalixar.servidor.services;
+
+import org.iesalixar.servidor.model.Vehiculo;
+
+public interface VehiculoService {
+	
+	public void insertNewVehiculo (final Empleado empleado);	
+	 
+	public void updateVehiculo (final Empleado empleado);	
+	
+	public void deleteVehiculo (final Empleado empleado);
+	
+	public Vehiculo searchByMatricula(String matricula);
+	
+}

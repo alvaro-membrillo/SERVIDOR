@@ -1,0 +1,9 @@
+package org.iesalixar.servidor.services;
+
+import org.iesalixar.servidor.model.Vehiculo;
+
+public class VehiculoServiceImpl implements VehiculoService {
+
+	
+
+}

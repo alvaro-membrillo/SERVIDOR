@@ -1,0 +1,13 @@
+package org.iesalixar.servidor.hibernate.utils.dao;
+
+public interface GenericDAO {
+	public void insert(final T objetT);
+
+	public void update(final T objectT);
+
+	public void delete(final T objectT);
+
+	public T searchById(final Long id);
+
+	public List<T> searchAll();
+}

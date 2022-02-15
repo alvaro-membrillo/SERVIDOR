@@ -1,0 +1,19 @@
+package org.iesalixar.servidor.services;
+
+import java.util.List;
+
+public interface UserPostService {
+
+	public void insertNewUserPost(final UserPost userPost);
+
+	public void updateUserPost(final UserPost userPost);
+
+	public void deleteUserPost(final UserPost userPost);
+
+	public UserPost searchById(final int commentId, final int UserId);
+
+	public List<Comment> searchAll();
+
+	public List<Comment> searchByName(String commentTame);
+
+}

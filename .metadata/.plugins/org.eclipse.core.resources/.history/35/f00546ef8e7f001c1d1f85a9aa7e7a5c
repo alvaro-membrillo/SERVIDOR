@@ -1,0 +1,16 @@
+package org.iesalixar.servidor.hibernate.dao;
+
+import java.util.List;
+
+import org.iesalixar.servidor.hibernate.model.Vehiculo;
+
+public class VehiculoDAOImpl extends  {
+
+	public List<Vehiculo> searchByMatricula(String matricula) {
+		
+		Vehiculo vehiculo = null;
+		
+		return vehiculo;
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;org.iesalixar.servidor.filters&apos; to &apos;EntregableIncorrecto/src/main/java&apos;&#x0A;- Original project: &apos;E3B&apos;&#x0A;- Destination element: &apos;EntregableIncorrecto/src/main/java&apos;&#x0A;- Original element: &apos;E3B/src/main/java/org.iesalixar.servidor.filters&apos;" description="Copy package" destination="=EntregableIncorrecto/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.iesalixar.servidor.filters" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1640808002305" version="1.0"/>
+</session>
