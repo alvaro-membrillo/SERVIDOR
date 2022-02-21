@@ -1,9 +1,0 @@
-package org.iesalixar.servidor.hibernate.dao;
-
-import org.iesalixar.servidor.hibernate.model.Vehiculo;
-
-public interface VehiculoDAO extends GenericDAO<Vehiculo> {
-	
-	public Vehiculo searchByMatricula(String matricula);
-	
-}

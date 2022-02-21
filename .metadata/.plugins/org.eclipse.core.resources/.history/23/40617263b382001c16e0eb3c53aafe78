@@ -1,7 +1,0 @@
-package org.iesalixar.servidor.services;
-
-public interface UserService {
-	
-	public void insertNewEmpleado(final User user);
-
-}

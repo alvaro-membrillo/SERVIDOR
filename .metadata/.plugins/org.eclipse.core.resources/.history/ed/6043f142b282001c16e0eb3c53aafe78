@@ -1,7 +1,0 @@
-package org.iesalixar.servidor.dao;
-
-public interface UserDAO<T> extends GenericDAO {
-	
-	
-
-}

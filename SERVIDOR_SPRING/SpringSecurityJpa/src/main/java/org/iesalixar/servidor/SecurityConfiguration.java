@@ -50,7 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 */
 		http.authorizeRequests().antMatchers("/").permitAll()
 				.antMatchers("/departments", "/asignaturas", "/departments", "/departmens/add").hasRole("ADMIN")
-				.antMatchers("/about", "/services").hasRole("USER").antMatchers("/register").not().authenticated().and()
+				.antMatchers("/about", "/services","/alumnos/*").hasRole("USER").antMatchers("/register").not().authenticated().and()
 				.formLogin();
 	}
 

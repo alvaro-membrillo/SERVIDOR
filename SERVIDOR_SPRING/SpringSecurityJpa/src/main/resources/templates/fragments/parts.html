@@ -13,7 +13,11 @@
 				</li>	
 				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/departments}" th:text="#{menu.departments}"></a>				
 				</li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/alumnos}" th:text="#{menu.student}"></a>				
+				</li>
 				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/asignaturas}" th:text="#{menu.subject}"></a>				
+				</li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link text-white" th:href="@{/profesores}" th:text="#{menu.teacher}"></a>				
 				</li>
 				<li sec:authorize="hasRole('ROLE_USER')" class="nav-item"><a class="nav-link text-white " th:href="@{/services}" th:text="#{menu.services}"></a>
 				</li>

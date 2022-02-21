@@ -2,6 +2,7 @@ package org.iesalixar.servidor.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.iesalixar.servidor.model.Asignatura;
 import org.iesalixar.servidor.repository.AsignaturaRepository;
@@ -28,6 +29,19 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 
 		// No he obtenido nada devuelvo una lista vacía (para no devolver nulo)
 		return new ArrayList<Asignatura>();
+	}
+	
+	@Override
+	public Optional<Asignatura> findAsignaturaById(Long id) {
+		
+		Optional<Asignatura> asignatura = null;
+		
+		if (id!=null) {
+			asignatura = asignaturaRepo.findById(id);
+		}
+		
+		return asignatura;
+		
 	}
 	
 }

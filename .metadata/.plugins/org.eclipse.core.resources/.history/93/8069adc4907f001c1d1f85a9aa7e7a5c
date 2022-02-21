@@ -1,5 +1,0 @@
-package org.iesalixar.servidor.hibernate.services;
-
-public class MarcaServiceImpl {
-
-}

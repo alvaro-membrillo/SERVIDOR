@@ -1,11 +1,20 @@
 package org.iesalixar.servidor.model;
 
+import java.sql.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "alumno")
@@ -15,7 +24,7 @@ public class Alumno {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(unique = true, length = 9, nullable = true)
 	private String nif;
 
 	@Column(nullable = false)
@@ -24,7 +33,7 @@ public class Alumno {
 	@Column(nullable = false)
 	private String apellido1;
 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String apellido2;
 
 	@Column(nullable = false)
@@ -33,14 +42,17 @@ public class Alumno {
 	@Column(nullable = false)
 	private String direccion;
 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String telefono;
 
-	@Column(nullable = false)
-	private String fechaNacimiento;
+	@Column(name = "fecha_nacimiento", nullable = false)
+	private Date fechaNacimiento;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 1)
 	private String sexo;
+
+	@OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<AlumnoAsignatura> alumnoAsignaturas = new HashSet<>();
 
 	public Alumno() {
 		// TODO Auto-generated constructor stub
@@ -110,11 +122,11 @@ public class Alumno {
 		this.telefono = telefono;
 	}
 
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -124,6 +136,31 @@ public class Alumno {
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	public Set<AlumnoAsignatura> getAlumnoAsignaturas() {
+		return alumnoAsignaturas;
+	}
+
+	public void setAlumnoAsignaturas(Set<AlumnoAsignatura> alumnoAsignatura) {
+		this.alumnoAsignaturas = alumnoAsignatura;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, nif);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alumno other = (Alumno) obj;
+		return Objects.equals(id, other.id) && Objects.equals(nif, other.nif);
 	}
 
 }

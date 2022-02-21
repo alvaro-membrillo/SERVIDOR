@@ -1,8 +1,0 @@
-package org.iesalixar.servidor.dao;
-
-import org.iesalixar.servidor.model.Comments;
-import org.iesalixar.servidor.utils.dao.GenericDAOImpl;
-
-public class CommentDAOImpl extends GenericDAOImpl<Comments> implements CommentDAO {
-
-}

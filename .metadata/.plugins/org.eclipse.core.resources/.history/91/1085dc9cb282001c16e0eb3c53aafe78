@@ -1,7 +1,0 @@
-package org.iesalixar.servidor.dao;
-
-import org.iesalixar.servidor.utils.dao.GenericDAO;
-
-public interface CommentDAO extends GenericDAO<Comments> {
-
-}

@@ -6,6 +6,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/alvaro/SERVIDOR/ExamenTrimestral1"/>
 			<item value="/home/alvaro/Escritorio/Desarrollo_Web_Entorno_Servidor/U5_ORM_Hibernate/Empresas"/>
 			<item value="/home/alvaro/SERVIDOR/EjemploBasicoHibernate"/>
 			<item value="/home/alvaro/SERVIDOR/HibernateBasicsHistorial"/>
@@ -72,6 +73,7 @@
 			<item value="org.iesalixar.servidor.hibernate"/>
 		</list>
 		<list key="name">
+			<item value="RecuperacionSegundaEv"/>
 			<item value="EntregableHibernate"/>
 			<item value="VehiculoHibernate"/>
 			<item value="EjemploBasicoHibernate"/>
@@ -79,6 +81,7 @@
 			<item value="ingInversa"/>
 		</list>
 		<list key="artifactId">
+			<item value="RecuperacionSegundaEv"/>
 			<item value="EntregableHibernate"/>
 			<item value="VehiculoHibernate"/>
 			<item value="EjemploBasicoHibernate"/>
@@ -103,6 +106,7 @@
 			<item value="org.iesalixar.servidor"/>
 		</list>
 		<list key="name">
+			<item value="RecuperacionSegundaEv"/>
 			<item value="HibernateManyToMany"/>
 			<item value="IntentoTrimestral"/>
 			<item value="GuiaRecuperacion"/>
@@ -117,6 +121,7 @@
 			<item value="Entregable"/>
 		</list>
 		<list key="artifactId">
+			<item value="RecuperacionSegundaEv"/>
 			<item value="HibernateManyToMany"/>
 			<item value="IntentoTrimestral"/>
 			<item value="GuiaRecuperacion"/>

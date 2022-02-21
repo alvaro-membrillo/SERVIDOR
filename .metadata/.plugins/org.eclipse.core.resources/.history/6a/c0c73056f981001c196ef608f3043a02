@@ -1,9 +1,0 @@
-package org.iesalixar.servidor.hibernate.services;
-
-import org.iesalixar.servidor.model.Vehiculo;
-
-public interface VehiculoService {
-	
-	public Vehiculo searchByMatricula(String matricula);
-	
-}

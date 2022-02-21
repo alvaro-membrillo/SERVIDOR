@@ -1,5 +1,0 @@
-package org.iesalixar.servidor.dao;
-
-public class CommentDAOImpl extends GenericDAOImpl implements CommentDAO {
-
-}
