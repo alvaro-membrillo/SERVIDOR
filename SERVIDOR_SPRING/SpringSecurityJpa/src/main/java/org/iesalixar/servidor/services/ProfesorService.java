@@ -10,5 +10,7 @@ public interface ProfesorService {
 	public List<Profesor> getAllProfesores();
 
 	public Optional<Profesor> findProfesorById(Long id);
+	
+	public List<Profesor> findProfesorByDepartamento(Long id);
 
 }

@@ -1,6 +1,7 @@
 package org.iesalixar.servidor.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.iesalixar.servidor.dto.DepartamentoDTO;
 import org.iesalixar.servidor.model.Departamento;
@@ -47,6 +48,18 @@ public class DepartamentoController {
 		}
 		
 		return "redirect:/departments";
+	}
+	
+	@GetMapping("/departaments/profesores")
+	public String profesoresDepartamento(@RequestParam(name="id_departamento") String id_departamento, Model model) {
+		
+		if (id_departamento == null) {
+			return "redirect:/departamentos";
+		}
+		
+		Optional<Departamento> departamento = departamentoService.findDepartamentoById(Long.parseLong(id_departamento));
+		model.addAttribute("departamento", departamento.get());
+		return "profesoresDepartamento";
 	}
 	
 	@GetMapping("/departments/edit")

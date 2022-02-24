@@ -6,6 +6,11 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/alvaro/Música/Servidor2022/ExamenTrimestral13-12"/>
+			<item value="/home/alvaro/Música/Servidor2022/RegistroLogin"/>
+			<item value="/home/alvaro/SERVIDOR/PoolDB"/>
+			<item value="/home/alvaro/SERVIDOR/PoolListarOficinas"/>
+			<item value="/home/alvaro/SERVIDOR/EntregablePrimeraEv"/>
 			<item value="/home/alvaro/SERVIDOR/ExamenTrimestral1"/>
 			<item value="/home/alvaro/Escritorio/Desarrollo_Web_Entorno_Servidor/U5_ORM_Hibernate/Empresas"/>
 			<item value="/home/alvaro/SERVIDOR/EjemploBasicoHibernate"/>
@@ -106,6 +111,10 @@
 			<item value="org.iesalixar.servidor"/>
 		</list>
 		<list key="name">
+			<item value="MembrilloPerezRecuperacion"/>
+			<item value="EjTrimestralDiciembre2021"/>
+			<item value="EjemploPoolDB"/>
+			<item value="Recuperacion2PrimeraEv"/>
 			<item value="RecuperacionSegundaEv"/>
 			<item value="HibernateManyToMany"/>
 			<item value="IntentoTrimestral"/>
@@ -117,10 +126,12 @@
 			<item value="ClassicModels"/>
 			<item value="RepasoEntregable"/>
 			<item value="RepasoExamen"/>
-			<item value="Examen"/>
-			<item value="Entregable"/>
 		</list>
 		<list key="artifactId">
+			<item value="MembrilloPerezRecuperacion"/>
+			<item value="EjTrimestralDiciembre2021"/>
+			<item value="EjemploPoolDB"/>
+			<item value="Recuperacion2PrimeraEv"/>
 			<item value="RecuperacionSegundaEv"/>
 			<item value="HibernateManyToMany"/>
 			<item value="IntentoTrimestral"/>
@@ -132,8 +143,6 @@
 			<item value="ClassicModels"/>
 			<item value="RepasoEntregable"/>
 			<item value="RepasoExamen"/>
-			<item value="Examen"/>
-			<item value="Entregable"/>
 		</list>
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>

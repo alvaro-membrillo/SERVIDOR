@@ -6,8 +6,14 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Comment"/>
+		<item key="selection" value="String"/>
 		<list key="findhistory">
+			<item value="Date"/>
+			<item value="username"/>
+			<item value="Products"/>
+			<item value="userName"/>
+			<item value="getUserName"/>
+			<item value="setUserName"/>
 			<item value="User"/>
 			<item value="return false"/>
 			<item value=";"/>
@@ -15,6 +21,12 @@
 			<item value="// TODO Auto-generated method stub"/>
 		</list>
 		<list key="replacehistory">
+			<item value="String"/>
+			<item value="Product"/>
+			<item value="username"/>
+			<item value="getUsuario"/>
+			<item value="setUsuario"/>
+			<item value="usuario"/>
 			<item value="Comment"/>
 			<item value="Comments"/>
 			<item value=""/>

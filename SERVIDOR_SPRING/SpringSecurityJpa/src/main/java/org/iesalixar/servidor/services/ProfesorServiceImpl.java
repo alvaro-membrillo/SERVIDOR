@@ -26,4 +26,11 @@ public class ProfesorServiceImpl implements ProfesorService {
 		return profRepo.findById(id);
 	}
 
+	@Override
+	public List<Profesor> findProfesorByDepartamento(Long id_departamento) {
+		
+		return profRepo.findByDepartamento(id_departamento);
+	}
+	
+
 }

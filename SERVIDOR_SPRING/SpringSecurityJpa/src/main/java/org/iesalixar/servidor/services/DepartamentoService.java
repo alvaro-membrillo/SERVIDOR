@@ -10,6 +10,5 @@ public interface DepartamentoService {
 	public Departamento getDepartamentByName(String nombre);
 	public Departamento insertaDepartamento(Departamento departamento);
 	public Departamento actualizarDepartamento(Departamento departamento);
-	public Departamento findDepartamentoById(Long id);
 	
 }

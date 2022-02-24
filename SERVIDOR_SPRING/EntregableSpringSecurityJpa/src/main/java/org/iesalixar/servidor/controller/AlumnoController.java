@@ -35,7 +35,7 @@ public class AlumnoController {
 		}
 		
 		Optional<Alumno> alumno = alumnoService.findAlumnoById(Long.parseLong(codigo));
-		
+		model.addAttribute("alumno",alumno.get());
 		
 		return "alumnosAsignaturas";
 	}

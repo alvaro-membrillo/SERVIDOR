@@ -26,7 +26,7 @@ public class AsignaturaController {
 		return "asignaturas";
 	}
 
-	@GetMapping("asignaturas")
+	@GetMapping("/alumnos")
 	public String asignaturasAlumnos(@RequestParam(required = false, name = "codigo") String codigo, Model model) {
 
 		// Obtengo el parámetro de la URL (en caso de no esta vuelvo a la lista de

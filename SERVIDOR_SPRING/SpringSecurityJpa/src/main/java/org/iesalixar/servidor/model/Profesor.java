@@ -1,5 +1,6 @@
 package org.iesalixar.servidor.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Objects;
@@ -11,12 +12,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "profesor")
-public class Profesor {
+public class Profesor implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,23 +39,28 @@ public class Profesor {
 	@Column(nullable = true)
 	private String apellido2;
 
-	@Column(nullable = false)
+	@Column
 	private String ciudad;
 
-	@Column(nullable = false)
+	@Column
 	private String direccion;
 
 	@Column(nullable = true)
 	private String telefono;
 
-	@Column(name = "fecha_nacimiento", nullable = false)
+	@Column(name = "fecha_nacimiento")
+	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
 
 	@Column(nullable = false, length = 1)
 	private String sexo;
 
 	@OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<ProfesorAsignatura> profesorAsignaturas = new HashSet<>();
+	private Set<Profesor> profesores = new HashSet<>();
+	
+	@ManyToOne
+	@JoinColumn(name="id_departamento")
+	Departamento departamento;
 
 	public Profesor() {
 		// TODO Auto-generated constructor stub
@@ -136,18 +146,26 @@ public class Profesor {
 		this.sexo = sexo;
 	}
 
-	public Set<ProfesorAsignatura> getProfesorAsignaturas() {
-		return profesorAsignaturas;
+	public Set<Profesor> getProfesores() {
+		return profesores;
 	}
 
-	public void setProfesorAsignaturas(Set<ProfesorAsignatura> profesorAsignaturas) {
-		this.profesorAsignaturas = profesorAsignaturas;
+	public void setProfesores(Set<Profesor> profesores) {
+		this.profesores = profesores;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellido1, apellido2, ciudad, direccion, fechaNacimiento, id, nif, nombre,
-				profesorAsignaturas, sexo, telefono);
+		return Objects.hash(apellido1, apellido2, ciudad, departamento, direccion, fechaNacimiento, id, nif, nombre,
+				profesores, sexo, telefono);
 	}
 
 	@Override
@@ -160,13 +178,12 @@ public class Profesor {
 			return false;
 		Profesor other = (Profesor) obj;
 		return Objects.equals(apellido1, other.apellido1) && Objects.equals(apellido2, other.apellido2)
-				&& Objects.equals(ciudad, other.ciudad) && Objects.equals(direccion, other.direccion)
-				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(id, other.id)
-				&& Objects.equals(nif, other.nif) && Objects.equals(nombre, other.nombre)
-				&& Objects.equals(profesorAsignaturas, other.profesorAsignaturas) && Objects.equals(sexo, other.sexo)
+				&& Objects.equals(ciudad, other.ciudad) && Objects.equals(departamento, other.departamento)
+				&& Objects.equals(direccion, other.direccion) && Objects.equals(fechaNacimiento, other.fechaNacimiento)
+				&& Objects.equals(id, other.id) && Objects.equals(nif, other.nif)
+				&& Objects.equals(nombre, other.nombre)
+				&& Objects.equals(profesores, other.profesores) && Objects.equals(sexo, other.sexo)
 				&& Objects.equals(telefono, other.telefono);
 	}
-	
-	
 
 }

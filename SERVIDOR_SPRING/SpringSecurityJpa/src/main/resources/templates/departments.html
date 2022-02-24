@@ -25,8 +25,12 @@
 						<tr th:each="d : ${departamentos}">
 							<td th:text="${d.getId()}"></td>
 							<td th:text="${d.getNombre()}"></td>
-							<td><a th:href="@{'/departments/edit?dpto='+${d.getId()}}"><i
-									class="bi bi-pen-fill"></i></a></td>
+							<td>
+								<a th:href="@{'/departments/edit?dpto='+${d.getId()}}"><i
+									class="bi bi-pen-fill"></i></a>
+								<a th:href="@{'/departments/profesores?dpto='+${d.getId()}}"><i
+									class="bi bi-book"></i></a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
