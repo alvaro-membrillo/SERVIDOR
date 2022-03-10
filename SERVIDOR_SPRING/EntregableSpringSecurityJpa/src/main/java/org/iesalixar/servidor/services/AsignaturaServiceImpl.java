@@ -43,5 +43,11 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 		return asignaturas;
 		
 	}
+
+	@Override
+	public List<Asignatura> findAsignaturaById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

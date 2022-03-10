@@ -44,8 +44,8 @@ public class GradoController {
 			return "redirect:/asignaturasGrado/";
 		}	
 		
-		Optional<Asignatura> asignaturas = asignaturaService.findAsignaturaById();
-		model.addAttribute("asignatura",asignatura.get());
+		/*Optional<Asignatura> asignaturas = asignaturaService.findAsignaturaById();
+		model.addAttribute("asignatura",asignatura.get());*/
 		
 		return "asignaturasGrado";
 	}
