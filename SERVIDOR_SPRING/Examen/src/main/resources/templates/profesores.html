@@ -25,10 +25,12 @@
 							<td th:text="${p.getNombre()}"></td>
 							<td th:text="${p.getApellido1()}"></td>
 							<!--<td th:text="${p.getDepartamento().getNombre()}"></td>-->
-							<td th:text="${p.getDepartamento().getNombre()}"></td>
+							<!--<td th:text="${p.getDepartamento().getNombre()}"></td>-->
+							<td th:text="(${p.departamento} != null) ? |${p.departamento.nombre} | : ''"></td>
 							
-							<td><a th:href="@{'/profesores/asignaturas?prof='+${p.getId()}}"><i
-									class="bi bi-eye-fill"></i></a></td>
+							<td><a th:href="@{'/profesores/asignaturas?codigo='+${p.getId()}}">
+								<i class="bi bi-eye-fill"></i></a>
+							</td>
 
 
 							<!--<td><a th:href="@{'/departments/edit?dpto='+${d.getId()}}"><i

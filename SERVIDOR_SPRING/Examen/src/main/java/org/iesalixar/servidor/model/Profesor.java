@@ -53,7 +53,7 @@ public class Profesor implements Serializable {
 	@Column(nullable = true)
 	private String telefono;
 
-	@Column(name = "fecha_nacimiento")
+	@Column(name = "fecha_nacimiento", nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
 

@@ -1,13 +1,12 @@
 package org.iesalixar.servidor.controller;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.iesalixar.servidor.dto.AsignaturaProfesorDTO;
 import org.iesalixar.servidor.dto.ProfesorDTO;
 import org.iesalixar.servidor.model.Asignatura;
+import org.iesalixar.servidor.model.Departamento;
 import org.iesalixar.servidor.model.Profesor;
 import org.iesalixar.servidor.services.AsignaturaServiceImpl;
 import org.iesalixar.servidor.services.DepartamentoServiceImpl;
@@ -64,19 +63,19 @@ public class ProfesorController {
 	@PostMapping("/profesores/addProfesor")
 	public String addProfesorPost(@ModelAttribute ProfesorDTO profe, Model model) throws ParseException {
 		
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
-		Date fechaNacimientoDate = formato.parse(profe.getFechaNacimiento());
-		
-		
 		Profesor profeBD = new Profesor();
 		profeBD.setNif(profe.getNif());
 		profeBD.setNombre(profe.getNombre());
 		profeBD.setApellido1(profe.getApellido1());
+		profeBD.setApellido2(profe.getApellido2());
 		profeBD.setCiudad(profe.getCiudad());
 		profeBD.setDireccion(profe.getDireccion());
-		profeBD.setFechaNacimiento(fechaNacimientoDate);
+		profeBD.setFechaNacimiento(profe.getFechaNacimiento());
 		profeBD.setSexo(profe.getSexo());
-		//profeBD.setDepartamento(profe.getDepartamento());
+		
+		Departamento departamentos = departamentoService.findDepartamentoById(profe.getDepartamento());
+		//Departamento departamentos = departamentoService.findDepartamentoById(profe.getDepartamento());
+		profeBD.setDepartamento(departamentos);
 
 		if (profesorService.insertarProfesor(profeBD) == null) {
 			return "redirect:/profesores/addProfesor?error=Existe&dpto=" + profe.getNombre();
@@ -103,15 +102,19 @@ public class ProfesorController {
 	}*/
 
 	@GetMapping("/profesores/asignaturas")
-	public String profesoresDepartamento(@RequestParam(required = false, name = "prof") String prof, Model model) {
+	public String profesoresDepartamento(@RequestParam(required = false, name="error") String error, @RequestParam(required = false, name = "codigo") String codigo, Model model) {
 
-		Profesor profEntity = profesorService.findProfesorById(Long.parseLong(prof));
 
-		if (prof == null || profEntity == null) {
+		if (codigo == null || codigo == "") {
+			
+			model.addAttribute("error", "Profesor no seleccionado");
+			
 			return "redirect:/profesores";
 		}
+		
+		Profesor profEntity = profesorService.findProfesorById(Long.parseLong(codigo));
 
-		model.addAttribute("profesores", profEntity);
+		model.addAttribute("asignatura", profEntity);
 
 		return "profesoresAsignaturas";
 	}
@@ -185,14 +188,14 @@ public class ProfesorController {
 		
 		Asignatura asignatura = asignaturaService.findAsignaturaById(dto.getAsignatura());
 		
-		profesorBD.setAsignaturas(asignatura);
+		/*profesorBD.setAsignaturas(asignatura);
 		
 		if (profesorService.insertarProfesorAsignatura(profesorBD) == null) {
 			return "redirect:/profesores/addAsignatura?error=Existe&dpto=" + profesorBD.getNombre();
-		}
+		}*/
 		
 		//Si se ha podido insertar
 		return "redirect:/profesores";
-	}*/
+	}
 
 }
