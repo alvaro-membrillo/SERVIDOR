@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="/fragments/bootstap::head(title='Matricula Form')">
+<body>
+	<div class="container mt-5">
+		<div class="row justify-content-center mt-5">
+			<div class="col-6">
+				<h1>Formulario simple</h1>
+				<form th:action="@{/forms/matriculaform}" th:object="${matricula}"
+					method="post">
+					<label for="">Nombre: </label>
+					<input class="form-control" type="text" th:field="*{productCode}" required />
+					<label class="mt-3" for="">Apellidos:
+					</label>
+					<input type="text" />
+					<label for="">Curso: </label>
+					<select
+						name="" id="">
+						<option value="">DAW1</option>
+						<option value="">DAW2</option>
+					</select>
+					<label for="">Email: </label>
+					<input type="text" />
+					<input
+						type="submit" value="Enviar" />
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

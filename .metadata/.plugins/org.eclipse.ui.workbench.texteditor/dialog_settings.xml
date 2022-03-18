@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="String"/>
+		<list key="findhistory">
+			<item value="Date"/>
+			<item value="username"/>
+			<item value="Products"/>
+			<item value="userName"/>
+			<item value="getUserName"/>
+			<item value="setUserName"/>
+			<item value="User"/>
+			<item value="return false"/>
+			<item value=";"/>
+			<item value="return null"/>
+			<item value="// TODO Auto-generated method stub"/>
+		</list>
+		<list key="replacehistory">
+			<item value="String"/>
+			<item value="Product"/>
+			<item value="username"/>
+			<item value="getUsuario"/>
+			<item value="setUsuario"/>
+			<item value="usuario"/>
+			<item value="Comment"/>
+			<item value="Comments"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="789"/>
+		<item key="DIALOG_Y_ORIGIN" value="231"/>
+		<item key="DIALOG_WIDTH" value="348"/>
+		<item key="DIALOG_HEIGHT" value="437"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
+</section>

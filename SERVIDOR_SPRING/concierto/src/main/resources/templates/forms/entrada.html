@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="/fragments/bootstrap::head(title='Entrada formulario')">
+<body>
+	<div class="container mt-5">
+		<div class="row justify-content-center mt-5">
+			<div class="col-8">
+				<h1>Entradas</h1>
+				<div th:if="${entrada.grupos == null}">
+					<form action="#" th:action="@{/forms/entrada}" th:object="entrada" method="post">
+						<label for="name">Grupos</label>
+						<select name="" id="grupos" th:field="*{grupos}" multiple>
+							<option th:each="grupo,stats : ${grupos}" th:text="*{grupo}" th:value="${grupo}"></option>
+						</select>
+						<label for="numEntradas">Numero de entradas</label>
+						<input class="form-control" id="numEntradas" type="number" placeholder="numero entradas" th:field="*{numEntradas}" />
+						<label for="dni">Categoria</label>
+						<label for="">Normal</label>
+						<input class="form-control" type="radio" value="Normal" th:field="*{categoria}" />
+						<label for="">VIP</label>
+						<input class="form-control" type="radio" value="VIP" th:field="*{categoria}" />
+					</form>
+				</div>
+				<div th:unless="${entrada.grupos == null}">
+					<h3 th:text="|Numero entradas: ${entrada.numEntradas}|"></h3>
+					<h3 th:text="|Categoria: ${entrada.categoria}|"></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

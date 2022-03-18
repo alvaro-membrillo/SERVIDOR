@@ -33,10 +33,10 @@
 		<servlet-class>org.iesalixar.servidor.controller.OficinaServlet</servlet-class>
 	</servlet>
 	
-	<servlet>
+	<!--<servlet>
 		<servlet-name>UpdateProductServlet</servlet-name>
 		<servlet-class>org.iesalixar.servidor.controller.UpdateProductServlet</servlet-class>
-	</servlet>
+	</servlet>-->
 	
 
 	<servlet-mapping>
@@ -60,10 +60,10 @@
 	</servlet-mapping>
 	
 	
-	<servlet-mapping>
+	<!--<servlet-mapping>
 		<servlet-name>UpdateProduct</servlet-name>
 		<url-pattern>/Admin/Update</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>-->
 
 
 	<servlet-mapping>
