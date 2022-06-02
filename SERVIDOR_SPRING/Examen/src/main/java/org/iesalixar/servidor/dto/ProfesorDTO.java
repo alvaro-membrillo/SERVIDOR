@@ -1,16 +1,19 @@
 package org.iesalixar.servidor.dto;
 
+import java.util.Date;
+
 public class ProfesorDTO {
 
 	private String id;
 	private String nif;
 	private String nombre;
 	private String apellido1;
+	private String apellido2;
 	private String ciudad;
 	public String direccion;
-	public String fechaNacimiento;
+	public Date fechaNacimiento;
 	public String sexo;
-	private String departamento;
+	private Long departamento;
 
 	public ProfesorDTO() {
 		// TODO Auto-generated constructor stub
@@ -48,6 +51,14 @@ public class ProfesorDTO {
 		this.apellido1 = apellido1;
 	}
 
+	public String getApellido2() {
+		return apellido2;
+	}
+
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
+	}
+
 	public String getCiudad() {
 		return ciudad;
 	}
@@ -64,11 +75,11 @@ public class ProfesorDTO {
 		this.direccion = direccion;
 	}
 
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -80,14 +91,12 @@ public class ProfesorDTO {
 		this.sexo = sexo;
 	}
 
-	public String getDepartamento() {
+	public Long getDepartamento() {
 		return departamento;
 	}
 
-	public void setDepartamento(String departamento) {
+	public void setDepartamento(Long departamento) {
 		this.departamento = departamento;
 	}
-	
-	
 
 }

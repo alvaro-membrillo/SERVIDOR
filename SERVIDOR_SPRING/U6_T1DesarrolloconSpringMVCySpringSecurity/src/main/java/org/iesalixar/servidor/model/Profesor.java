@@ -19,53 +19,54 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "profesor")
 public class Profesor implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(nullable = true)
-	private String nif;
-
-	@Column
-	private String nombre;
-
-	@Column
-	private String apellido1;
-
-	@Column
-	private String apellido2;
-
-	@Column
-	private String ciudad;
-
-	@Column
-	private String direccion;
-
-	@Column(nullable = true)
-	private String telefono;
-
-	@Column(name = "fecha_nacimiento")
-	@Temporal(TemporalType.DATE)
-	private Date fechaNacimiento;
-
-	@Column
-	private String sexo;
-
-	@ManyToOne
-	@JoinColumn(name = "id_departamento")
-	Departamento departamento;
 	
-	@OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = true)
+	@Column(name="nif",unique=true, nullable=false)
+	private String nif;
+	
+	@Column(name="nombre", nullable=false)
+	private String nombre;
+	
+	@Column(name="apellido1", nullable=false)
+	private String apellido1;
+	
+	@Column(name="apellido2", nullable=false)
+	private String apellido2;
+	
+	@Column(name="ciudad", nullable=false)
+	private String ciudad;
+	
+	@Column(name="direccion", nullable=false)
+	private String direccion;
+	
+	@Column(name="telefono", nullable=false)
+	private String telefono;
+	
+	@Column(name="fecha_nacimiento", nullable=false)
+	private Date fecha_nacimiento;
+	
+	@Column(name="sexo", nullable=false)
+	private String sexo;
+		
+
+	
+	
+	@OneToMany(mappedBy="profesor",cascade=CascadeType.ALL,orphanRemoval = true)
 	private Set<Asignatura> asignaturas = new HashSet<>();
+	
+	@Column(name="id_departamento", nullable=false)
+	private int departamento;
 
 	public Profesor() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Long getId() {
@@ -132,12 +133,12 @@ public class Profesor implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
 	public String getSexo() {
@@ -148,13 +149,11 @@ public class Profesor implements Serializable {
 		this.sexo = sexo;
 	}
 
-	public Departamento getDepartamento() {
-		return departamento;
-	}
 
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
+  public String getFullName(){
+	  
+	  return this.nombre+","+this.apellido1+" "+this.apellido2;
+  }
 
 	public Set<Asignatura> getAsignaturas() {
 		return asignaturas;
@@ -164,10 +163,18 @@ public class Profesor implements Serializable {
 		this.asignaturas = asignaturas;
 	}
 
+	public int getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(int departamento) {
+		this.departamento = departamento;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellido1, apellido2, ciudad, departamento, direccion, fechaNacimiento, id, nif, nombre,
-				sexo, telefono);
+		return Objects.hash(apellido1, apellido2, asignaturas, ciudad, direccion, fecha_nacimiento, id, departamento,
+				nif, nombre, sexo, telefono);
 	}
 
 	@Override
@@ -180,18 +187,20 @@ public class Profesor implements Serializable {
 			return false;
 		Profesor other = (Profesor) obj;
 		return Objects.equals(apellido1, other.apellido1) && Objects.equals(apellido2, other.apellido2)
-				&& Objects.equals(ciudad, other.ciudad) && Objects.equals(departamento, other.departamento)
-				&& Objects.equals(direccion, other.direccion) && Objects.equals(fechaNacimiento, other.fechaNacimiento)
-				&& Objects.equals(id, other.id) && Objects.equals(nif, other.nif)
+				&& Objects.equals(asignaturas, other.asignaturas) && Objects.equals(ciudad, other.ciudad)
+				&& Objects.equals(direccion, other.direccion)
+				&& Objects.equals(fecha_nacimiento, other.fecha_nacimiento) && Objects.equals(id, other.id)
+				&& departamento == other.departamento && Objects.equals(nif, other.nif)
 				&& Objects.equals(nombre, other.nombre) && Objects.equals(sexo, other.sexo)
 				&& Objects.equals(telefono, other.telefono);
 	}
 
 	@Override
 	public String toString() {
-
-		return nombre + " " + apellido1 + " " + apellido2;
-
+		return "Profesor [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", apellido1=" + apellido1
+				+ ", apellido2=" + apellido2 + ", ciudad=" + ciudad + ", direccion=" + direccion + ", telefono="
+				+ telefono + ", fecha_nacimiento=" + fecha_nacimiento + ", sexo=" + sexo + ", asignaturas="
+				+ asignaturas + ", departamento=" + departamento + "]";
 	}
 
 }

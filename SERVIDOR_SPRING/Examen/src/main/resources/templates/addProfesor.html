@@ -16,6 +16,9 @@
 					<label for="nombre" class="form-label mt-3">Apellido1</label>
 					<input type="text" class="form-control" id="apellido1" name="apellido1"
 						th:field="*{apellido1}" required>
+					<label for="nombre" class="form-label mt-3">Apellido2</label>
+					<input type="text" class="form-control" id="apellido2" name="apellido2"
+						th:field="*{apellido2}" required>
 					<label for="nombre" class="form-label mt-3">Ciudad</label>
 					<input type="text" class="form-control" id="ciudad" name="Ciudad"
 						th:field="*{ciudad}" required>
@@ -23,7 +26,7 @@
 					<input type="text" class="form-control" id="direccion" name="direccion"
 						th:field="*{direccion}" required>
 					<label for="nombre" class="form-label mt-3">FechaNacimiento</label>
-					<input type="text" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
+					<input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
 						th:field="*{fechaNacimiento}" required>
 					<!-- Voy a controlarlo como si fuese un enum desde la vista -->
 					<label for="nombre" class="form-label mt-3">Sexo:</label>

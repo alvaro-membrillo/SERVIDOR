@@ -1,13 +1,11 @@
 package org.iesalixar.servidor.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.iesalixar.servidor.dto.AsignaturaProfesorDTO;
 import org.iesalixar.servidor.dto.ProfesorDTO;
 import org.iesalixar.servidor.model.Asignatura;
+import org.iesalixar.servidor.model.Departamento;
 import org.iesalixar.servidor.model.Profesor;
 import org.iesalixar.servidor.services.AsignaturaServiceImpl;
 import org.iesalixar.servidor.services.DepartamentoServiceImpl;
@@ -58,15 +56,12 @@ public class ProfesorController {
 		model.addAttribute("error", error);
 		model.addAttribute("previo", nombre);
 		model.addAttribute("departamento", departamentoService.getAllDepartments()); //Todos los departamentos
+		
 		return "addProfesor";
 	}
 
 	@PostMapping("/profesores/addProfesor")
-	public String addProfesorPost(@ModelAttribute ProfesorDTO profe, Model model) throws ParseException {
-		
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
-		Date fechaNacimientoDate = formato.parse(profe.getFechaNacimiento());
-		
+	public String addProfesorPost(@ModelAttribute ProfesorDTO profe, Model model) {
 		
 		Profesor profeBD = new Profesor();
 		profeBD.setNif(profe.getNif());
@@ -74,12 +69,14 @@ public class ProfesorController {
 		profeBD.setApellido1(profe.getApellido1());
 		profeBD.setCiudad(profe.getCiudad());
 		profeBD.setDireccion(profe.getDireccion());
-		profeBD.setFechaNacimiento(fechaNacimientoDate);
+		profeBD.setFechaNacimiento(profe.getFechaNacimiento());
 		profeBD.setSexo(profe.getSexo());
-		//profeBD.setDepartamento(profe.getDepartamento());
+		
+		Departamento departamentos = departamentoService.findDepartamentoById(profe.getDepartamento());
+		profeBD.setDepartamento(departamentos);
 
 		if (profesorService.insertarProfesor(profeBD) == null) {
-			return "redirect:/profesores/addProfesor?error=Existe&dpto=" + profe.getNombre();
+			return "redirect:/profeso	res/addProfesor?error=Existe&dpto=" + profe.getNombre();
 		}
 
 		return "redirect:/profesores";
@@ -185,14 +182,14 @@ public class ProfesorController {
 		
 		Asignatura asignatura = asignaturaService.findAsignaturaById(dto.getAsignatura());
 		
-		profesorBD.setAsignaturas(asignatura);
+		/*profesorBD.setAsignaturas(asignatura);
 		
 		if (profesorService.insertarProfesorAsignatura(profesorBD) == null) {
 			return "redirect:/profesores/addAsignatura?error=Existe&dpto=" + profesorBD.getNombre();
-		}
+		}*/
 		
 		//Si se ha podido insertar
 		return "redirect:/profesores";
-	}*/
+	}
 
 }
