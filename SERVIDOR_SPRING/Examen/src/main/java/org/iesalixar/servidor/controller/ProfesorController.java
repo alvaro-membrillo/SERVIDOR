@@ -1,5 +1,9 @@
 package org.iesalixar.servidor.controller;
 
+<<<<<<< HEAD
+=======
+import java.text.ParseException;
+>>>>>>> b835d2b80e7acb142e536d7e349fda30f057e9aa
 import java.util.List;
 
 import org.iesalixar.servidor.dto.AsignaturaProfesorDTO;
@@ -61,18 +65,27 @@ public class ProfesorController {
 	}
 
 	@PostMapping("/profesores/addProfesor")
+<<<<<<< HEAD
 	public String addProfesorPost(@ModelAttribute ProfesorDTO profe, Model model) {
+=======
+	public String addProfesorPost(@ModelAttribute ProfesorDTO profe, Model model) throws ParseException {
+>>>>>>> b835d2b80e7acb142e536d7e349fda30f057e9aa
 		
 		Profesor profeBD = new Profesor();
 		profeBD.setNif(profe.getNif());
 		profeBD.setNombre(profe.getNombre());
 		profeBD.setApellido1(profe.getApellido1());
+		profeBD.setApellido2(profe.getApellido2());
 		profeBD.setCiudad(profe.getCiudad());
 		profeBD.setDireccion(profe.getDireccion());
 		profeBD.setFechaNacimiento(profe.getFechaNacimiento());
 		profeBD.setSexo(profe.getSexo());
 		
 		Departamento departamentos = departamentoService.findDepartamentoById(profe.getDepartamento());
+<<<<<<< HEAD
+=======
+		//Departamento departamentos = departamentoService.findDepartamentoById(profe.getDepartamento());
+>>>>>>> b835d2b80e7acb142e536d7e349fda30f057e9aa
 		profeBD.setDepartamento(departamentos);
 
 		if (profesorService.insertarProfesor(profeBD) == null) {
@@ -100,15 +113,19 @@ public class ProfesorController {
 	}*/
 
 	@GetMapping("/profesores/asignaturas")
-	public String profesoresDepartamento(@RequestParam(required = false, name = "prof") String prof, Model model) {
+	public String profesoresDepartamento(@RequestParam(required = false, name="error") String error, @RequestParam(required = false, name = "codigo") String codigo, Model model) {
 
-		Profesor profEntity = profesorService.findProfesorById(Long.parseLong(prof));
 
-		if (prof == null || profEntity == null) {
+		if (codigo == null || codigo == "") {
+			
+			model.addAttribute("error", "Profesor no seleccionado");
+			
 			return "redirect:/profesores";
 		}
+		
+		Profesor profEntity = profesorService.findProfesorById(Long.parseLong(codigo));
 
-		model.addAttribute("profesores", profEntity);
+		model.addAttribute("asignatura", profEntity);
 
 		return "profesoresAsignaturas";
 	}

@@ -20,8 +20,8 @@
 					</tr>
 					</thead>					
 					<tbody>
-					 <tr th:each="a : ${profesor.getAsignaturas()}">
-					 	<td th:text="${a.id()}"></td>
+					 <tr th:each="a : ${asignatura.getAsignaturas()}">
+					 	<td th:text="${a.getId()}"></td>
 					 	<td th:text="${a.getNombre()}"></td>
 					 	<td th:text="${a.getCreditos()}"></td>
 					 	<td th:text="${a.getTipo()}"></td>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head
+	th:replace="fragments/bootstrap::head(title='ProfesorAsignaturas')"></head>
+<body>
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+			<header th:insert="fragments/parts::menu"></header>
+
+<!-- 			<c:if test="${profesores ne null}"> -->
+
+				<div class="col-8">
+					<table class="table table-stripped table-hover">
+						<thead class="table-light">
+							<tr>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Créditos</th>
+								<th>Tipo</th>
+								<th>Curso</th>
+								<th>Cuatrimestre</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="a : ${profesores.getAsignaturas()}">
+								<td th:text="${a.id}"></td>
+								<td th:text="${a.nombre}"></td>
+								<td th:text="${a.creditos}"></td>
+								<td th:text="${a.tipo}"></td>
+								<td th:text="${a.curso}"></td>
+								<td th:text="${a.cuatrimestre}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+<!-- 			</c:if> -->
+			
+<!-- 			<c:if test="${profesores eq null}"> -->
+<!-- 				<c:out value="${error}" /> -->
+<!-- 			</c:if> -->
+
+		</div>
+	</div>
+</body>
+</html>

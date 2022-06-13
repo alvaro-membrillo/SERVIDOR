@@ -1,34 +1,23 @@
 package org.iesalixar.servidor.dto;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.sql.Date;
 
-public class ProfesorDTO {
+public class ProfesorDTO implements Serializable {
 
-	private String id;
 	private String nif;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
 	private String ciudad;
-	public String direccion;
-<<<<<<< HEAD
-=======
-	public String telefono;
->>>>>>> b835d2b80e7acb142e536d7e349fda30f057e9aa
-	public Date fechaNacimiento;
-	public String sexo;
-	private Long departamento;
+	private String direccion;
+	private String telefono;
+	private Date fechaNacimiento;
+	private String sexo;
+	private int id_departamento;
 
 	public ProfesorDTO() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getNif() {
@@ -79,8 +68,6 @@ public class ProfesorDTO {
 		this.direccion = direccion;
 	}
 
-<<<<<<< HEAD
-=======
 	public String getTelefono() {
 		return telefono;
 	}
@@ -89,7 +76,6 @@ public class ProfesorDTO {
 		this.telefono = telefono;
 	}
 
->>>>>>> b835d2b80e7acb142e536d7e349fda30f057e9aa
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
@@ -106,12 +92,12 @@ public class ProfesorDTO {
 		this.sexo = sexo;
 	}
 
-	public Long getDepartamento() {
-		return departamento;
+	public int getId_departamento() {
+		return id_departamento;
 	}
 
-	public void setDepartamento(Long departamento) {
-		this.departamento = departamento;
+	public void setId_departamento(int id_departamento) {
+		this.id_departamento = id_departamento;
 	}
 
 }

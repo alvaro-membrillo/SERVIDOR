@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head th:replace="fragments/bootstrap::head(title='Add Dpto')"></head>
 <body>
 	<div class="container mt-5">
@@ -22,9 +23,12 @@
 					<label for="nombre" class="form-label mt-3">Ciudad</label>
 					<input type="text" class="form-control" id="ciudad" name="Ciudad"
 						th:field="*{ciudad}" required>
-					<label for="nombre" class="form-label mt-3">Direccion</label>
+					<label for="nombre" class="form-label mt-3">Dirección</label>
 					<input type="text" class="form-control" id="direccion" name="direccion"
 						th:field="*{direccion}" required>
+					<label for="nombre" class="form-label mt-3">Teléfono</label>
+					<input type="text" class="form-control" id="telefono" name="telefono"
+						th:field="*{telefono}" required>
 					<label for="nombre" class="form-label mt-3">FechaNacimiento</label>
 					<input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
 						th:field="*{fechaNacimiento}" required>
@@ -34,13 +38,14 @@
 						<option th:value="H" th:text="H">H</option>
 						<option th:value="M" th:text="M">M</option>
 					</select>
-					<h6 class="text-danger" th:if="${error!=null}" th:text="${'Profesor existente'}"></h6>	
-					<input type="submit" class="btn btn-primary w-100 mt-3" value="AÑADIR" />
 					
 					<label for="nombre" class="form-label mt-3">Departamento:</label>
 					<select th:field="*{departamento}" class="form-select" aria-label="Seleccione un departamento" >
 						<option th:each="d : ${departamento}" th:value="${d.getId()}" th:text="${d.getNombre()}"></option>
-					</select>	
+					</select>
+						
+					<h6 class="text-danger" th:if="${error!=null}" th:text="${'Profesor existente'}"></h6>	
+					<input type="submit" class="btn btn-primary w-100 mt-3" value="AÑADIR" />
 				</form>
 			</div>
 			<!--<footer th:replace="fragments/parts::footer(info='menu.adddpto')"></footer>-->
