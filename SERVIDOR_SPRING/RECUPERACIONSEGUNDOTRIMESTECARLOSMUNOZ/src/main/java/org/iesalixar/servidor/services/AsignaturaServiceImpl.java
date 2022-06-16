@@ -28,13 +28,8 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 	}
 
 	@Override
-	public Optional<Asignatura> getAsignaturaById(Long id) {
-
-		if (id != null) {
-			Optional<Asignatura> asignatura = asignaturaRepo.findById(id);
-			return asignatura;
-		}
-
+	public Asignatura getAsignaturaByName(String id) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -59,5 +54,9 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 		
 		return asignaturaRepo.save(asignatura);
 	}
+
+
+
+	
 
 }

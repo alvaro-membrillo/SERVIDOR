@@ -1,8 +1,5 @@
 package org.iesalixar.servidor.controller;
 
-import java.util.Optional;
-
-import org.iesalixar.servidor.model.Asignatura;
 import org.iesalixar.servidor.services.AsignaturaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

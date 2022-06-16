@@ -8,8 +8,8 @@ import org.iesalixar.servidor.model.Asignatura;
 public interface AsignaturaService {
 	
 	public List<Asignatura> getAllAsignaturas();
-	public Optional<Asignatura> getAsignaturaById(Long id);
 	public Optional<Asignatura> findAsignaturaById(Long id);
+	public Asignatura getAsignaturaByName(String id);
 	public Asignatura actualizarAsignatura(Asignatura asignatura);
 	
 }

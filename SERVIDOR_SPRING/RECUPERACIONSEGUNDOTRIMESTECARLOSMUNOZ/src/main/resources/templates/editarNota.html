@@ -12,8 +12,12 @@
 				<h2 class="mt-4">Alumno: <span th:text="${nombreAlumno}"></span> </h2>
 
 				<form th:action="@{/estudiantes/editarnota}" method="post" th:object="${alumnoAsignatura}">
+				
 					<label for="nota" class="form-label mt-3" th:text="Nota"></label>
-					<input type="number" name="nota" th:value="${alumnoAsignatura.nota}" />
+					<input type="number" name="nota" th:field="*{nota}" th:value="${alumnoAsignatura.getNota()}" required />
+					
+					<input type="hidden" class="form-control" id="alumno" name="alumno" th:field="*{alumno}" th:value="${alumno.id}">
+					<input type="hidden" class="form-control" id="asignatura" name="asignatura" th:field="*{asignatura}" th:value="${asignatura.id}">
 					
 					<button type="submit" class="btn btn-primary w-100 mt-3"
 						th:text="MODIFICAR"></button>

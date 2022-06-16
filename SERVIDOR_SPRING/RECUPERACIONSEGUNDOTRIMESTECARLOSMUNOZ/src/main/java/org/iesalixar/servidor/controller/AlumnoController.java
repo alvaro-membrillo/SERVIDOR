@@ -1,8 +1,9 @@
 package org.iesalixar.servidor.controller;
 
+import java.text.ParseException;
 import java.util.Optional;
 
-import org.iesalixar.servidor.dto.AlumnoAsignaturaDTO;
+import org.iesalixar.servidor.dto.AlumnoAsignaturaNotaDTO;
 import org.iesalixar.servidor.model.Alumno;
 import org.iesalixar.servidor.model.AlumnoAsignatura;
 import org.iesalixar.servidor.model.Asignatura;
@@ -12,8 +13,8 @@ import org.iesalixar.servidor.services.AsignaturaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,12 +33,11 @@ public class AlumnoController {
 	@RequestMapping("/estudiantes/editarnota")
 	public String editarNota(@RequestParam(required=false, name="idAlumno") String idAlumno, @RequestParam(required=false,name="idAsignatura") String idAsignatura, Model model) {
 		
-//		model.addAttribute("nombreAsignatura", asignaturaService.findAsignaturaById(Long.parseLong(idAlumno)).get().getNombre());
-		Optional<Alumno> alumno = alumService.findAlumnoById(Long.parseLong(idAsignatura));
+		Optional<Alumno> alumno = alumService.findAlumnoById(Long.parseLong(idAlumno));
 		Optional<Asignatura> asignatura = asigService.findAsignaturaById(Long.parseLong(idAsignatura));
 		
-		model.addAttribute("nombreAsignatura", asignatura.get().getNombre());
-		model.addAttribute("nombreAlumno", alumno.get().getNombre()+" "+alumno.get().getApellido1());
+		model.addAttribute("alumno", alumno.get());
+		model.addAttribute("asignatura", asignatura.get());
 		
 		for (AlumnoAsignatura alumAsignatura : alumno.get().getAlumnoAsignaturas()) {
 			if (alumAsignatura.getAsignatura().getId() == asignatura.get().getId()) {
@@ -49,17 +49,18 @@ public class AlumnoController {
 	}
 	
 	@PostMapping("/estudiantes/editarnota")
-	public String editarNotaPost(@RequestParam(required=false, name="asig") String asig, @RequestParam(required=false, name="alum") String alum, @RequestAttribute AlumnoAsignaturaDTO alumAsigDTO, Model model) {
+	public String editarNotaPost(@ModelAttribute AlumnoAsignaturaNotaDTO alumAsigDTO, Model model) throws ParseException {
 		
 		AlumnoAsignatura alumAsig = new AlumnoAsignatura();
-		Optional<Alumno> alumno = alumService.findAlumnoById(alumAsigDTO.getIdAlumno());
-		Optional<Asignatura> asignatura = asigService.findAsignaturaById(alumAsig.getAsignatura().getId());
+		Optional<Alumno> alumno = alumService.findAlumnoById(alumAsigDTO.getAlumno());
+		Optional<Asignatura> asignatura = asigService.findAsignaturaById(alumAsigDTO.getAsignatura());
 		
+		alumAsig.setAlumno(alumno.get());
+		alumAsig.setAsignatura(asignatura.get());
+		alumAsig.setNota(alumAsigDTO.getNota());
+		alumAsigService.actualizarAlumnoAsignatura(alumAsig);
 		
-//		AlumnoAsignatura alumAsig = alumAsigService.findAlumnoAsignaturaById(alumService.findAlumnoById(alum).get(), asigService.findAsignaturaById(Long.parseLong(asig)).get());
-//		alumAsigService.actualizarAlumnoAsignatura(alumAsig);
-		
-		return "editarNota";
+		return "redirect:/grados/estudiantes?idGrado="+asignatura.get().getGrado().getId();
 	}
 	
 }

@@ -2,28 +2,28 @@ package org.iesalixar.servidor.dto;
 
 public class AlumnoAsignaturaDTO {
 
-	private Long idAlumno;
-	private Long idAsignatura;
+	private Long alumno;
+	private Long asignatura;
 	private int nota;
 
 	public AlumnoAsignaturaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getIdAlumno() {
-		return idAlumno;
+	public Long getAlumno() {
+		return alumno;
 	}
 
-	public void setIdAlumno(Long idAlumno) {
-		this.idAlumno = idAlumno;
+	public void setAlumno(Long alumno) {
+		this.alumno = alumno;
 	}
 
-	public Long getIdAsignatura() {
-		return idAsignatura;
+	public Long getAsignatura() {
+		return asignatura;
 	}
 
-	public void setIdAsignatura(Long idAsignatura) {
-		this.idAsignatura = idAsignatura;
+	public void setAsignatura(Long asignatura) {
+		this.asignatura = asignatura;
 	}
 
 	public int getNota() {

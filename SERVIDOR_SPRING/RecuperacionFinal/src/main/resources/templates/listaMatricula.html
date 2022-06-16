@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Asignaturas')"></head>
+<body>
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+			<header th:insert="fragments/parts::menu"></header>
+			<div class="col-12">
+				<h4 class="text-center mt-5">
+					Matrículas de <span th:text="${asignatura.nombre}"></span>
+				</h4>
+				<table class="table table-stripped table-hover mt-3">
+					<thead class="table-light">
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido1</th>
+							<th>Apellido2</th>
+							<th>Nota</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="aa : ${alumnosAsignatura}">
+<!-- 							<td th:text="${aa.getAlumno().nombre}"></td> -->
+<!-- 							<td th:text="${aa.getAsignatura().getGrado().nombre}"></td> -->
+							<!-- 							<td th:text="${aa.getAsignatura().getProfesor().nombre}"></td> -->
+							<td></td>
+<!-- 							<td><a -->
+<!-- 								th:href="@{'/matricula/delete?codigo='+${aa.getAsignatura().id}}"><i -->
+<!-- 									class="bi bi-x-circle-fill"></i></a></td> -->
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
