@@ -9,7 +9,7 @@ public interface AsignaturaService {
 	
 	public List<Asignatura> getAllAsignaturas();
 //	public List<Asignatura> findAsignaturaByGrado(Long grado);
-	public Optional<Asignatura> findAsignaturaById(Long id);
+	public Asignatura findAsignaturaById(Long id);
 	public Asignatura actualizarAsignatura(Asignatura asignatura);
 	public Optional<Asignatura> getAsignaturaById(Long asignatura);
 	

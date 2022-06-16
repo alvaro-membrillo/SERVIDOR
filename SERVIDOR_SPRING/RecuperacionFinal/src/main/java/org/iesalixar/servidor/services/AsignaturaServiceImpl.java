@@ -30,27 +30,14 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 		// No he obtenido nada devuelvo una lista vacía (para no devolver nulo)
 		return new ArrayList<Asignatura>();
 	}
-	
-//	@Override
-//	public List<Asignatura> findAsignaturaByGrado(Long id_grado) {
-//		
-//		List<Asignatura> asignaturas = new ArrayList<>();
-//		
-//		if (id_grado != null) {
-//			/*asignaturas.addAll(asignaturaRepo.findById(id_grado));*/
-//		}
-//		
-//		return asignaturas;
-//		
-//	}
 
 	@Override
-	public Optional<Asignatura> findAsignaturaById(Long id) {
+	public Asignatura findAsignaturaById(Long id) {
 		
-		Optional<Asignatura> asignatura = null;
+		Asignatura asignatura = null;
 		
 		if (id != null) {
-			asignatura = asignaturaRepo.findById(id);
+			asignatura = asignaturaRepo.findById(id).get();
 		}
 		
 		return asignatura;

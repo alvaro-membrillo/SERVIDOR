@@ -8,23 +8,27 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class JPAUserDetails implements UserDetails {
+public class JPAUserDetails implements UserDetails{
 
+	
 	private String usuario;
 	private String password;
 	private boolean activo;
 	private List<GrantedAuthority> authorities;
-
+	
 	public JPAUserDetails(Usuario usuario) {
+		
 		this.usuario = usuario.getUserName();
 		this.password = usuario.getPassword();
 		this.activo = usuario.isActivo();
-		this.authorities = new ArrayList<>();
+		this.authorities = new ArrayList<>();				
 		this.authorities.add(new SimpleGrantedAuthority(usuario.getRole()));
+		
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
+		
 		return this.authorities;
 	}
 
@@ -56,6 +60,8 @@ public class JPAUserDetails implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return this.activo;
-	}
+	}	
+	
 
+	
 }

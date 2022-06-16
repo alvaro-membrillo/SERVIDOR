@@ -1,6 +1,5 @@
 package org.iesalixar.servidor.model;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -16,11 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "asignatura")
-public class Asignatura implements Serializable {
+public class Asignatura {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,15 +38,16 @@ public class Asignatura implements Serializable {
 	@Column(nullable = false)
 	private Integer cuatrimestre;
 
-//	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "id_profesor")
-	private Profesor profesor;
+	@OneToMany(mappedBy = "asignatura", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<AlumnoAsignatura> alumnosAsignatura = new HashSet<>();
 
-//	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "id_grado")
+	@JoinColumn(name = "id_grado", insertable = true, updatable = true)
 	private Grado grado;
+
+	@ManyToOne
+	@JoinColumn(name = "id_profesor", insertable = true, updatable = true)
+	private Profesor profesor;
 
 	public Asignatura() {
 		// TODO Auto-generated constructor stub
@@ -103,6 +101,14 @@ public class Asignatura implements Serializable {
 		this.cuatrimestre = cuatrimestre;
 	}
 
+	public Set<AlumnoAsignatura> getAlumnosAsignatura() {
+		return alumnosAsignatura;
+	}
+
+	public void setAlumnosAsignatura(Set<AlumnoAsignatura> alumnosAsignatura) {
+		this.alumnosAsignatura = alumnosAsignatura;
+	}
+
 	public Profesor getProfesor() {
 		return profesor;
 	}
@@ -117,6 +123,36 @@ public class Asignatura implements Serializable {
 
 	public void setGrado(Grado grado) {
 		this.grado = grado;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Asignatura other = (Asignatura) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	// Métodos Helpers
+	public void addNota(Alumno alumno, int nota) {
+		AlumnoAsignatura alumnoAsignatura = new AlumnoAsignatura(alumno, this, nota);
+		this.alumnosAsignatura.add(alumnoAsignatura);
+		alumno.getAlumnoAsignaturas().add(alumnoAsignatura);
+	}
+
+	public void removeNota(Alumno alumno) {
+		AlumnoAsignatura alumnoAsignatura = new AlumnoAsignatura(alumno, this);
+		alumno.getAlumnoAsignaturas().remove(alumnoAsignatura);
+		this.alumnosAsignatura.remove(alumnoAsignatura);
 	}
 
 }

@@ -1,5 +1,6 @@
 package org.iesalixar.servidor.model;
 
+import java.awt.print.Book;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -19,8 +20,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "profesor")
 public class Profesor implements Serializable {
@@ -29,49 +28,59 @@ public class Profesor implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "nif", unique = true, nullable = false)
+	@Column(unique = true, length = 9, nullable = true)
 	private String nif;
 
-	@Column(name = "nombre", nullable = false)
+	@Column(nullable = false)
 	private String nombre;
 
-	@Column(name = "apellido1", nullable = false)
+	@Column(nullable = false)
 	private String apellido1;
 
-	@Column(name = "apellido2", nullable = false)
+	@Column(nullable = true)
 	private String apellido2;
 
-	@Column(name = "ciudad", nullable = false)
+	@Column(nullable = false)
 	private String ciudad;
 
-	@Column(name = "direccion", nullable = false)
+	@Column(nullable = false)
 	private String direccion;
 
-	@Column(name = "telefono", nullable = false)
+	@Column(nullable = true)
 	private String telefono;
 
 	@Column(name = "fecha_nacimiento", nullable = false)
-	private Date fecha_nacimiento;
+//	@Temporal(TemporalType.DATE)
+	private String fechaNacimiento;
 
-	@Column(name = "sexo", nullable = false)
+	@Column(nullable = false, length = 1)
 	private String sexo;
 
 	@OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Asignatura> asignaturas = new HashSet<>();
 
-	@Column(name = "id_departamento", nullable = false)
-	private int departamento;
+	@ManyToOne
+	@JoinColumn(name = "id_departamento")
+	Departamento departamento;
+
+//	----------------------------------
+//	CUIDADO CON ESTO -- INVENT!!!
+	@ManyToOne
+	@JoinColumn(name = "id_asignatura", insertable = true, updatable = true)
+	private Asignatura asignatura;
+
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
+	}
+
+//	--------------------------
 
 	public Profesor() {
-
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getNif() {
@@ -130,12 +139,12 @@ public class Profesor implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public Date getFecha_nacimiento() {
-		return fecha_nacimiento;
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	public String getSexo() {
@@ -146,9 +155,12 @@ public class Profesor implements Serializable {
 		this.sexo = sexo;
 	}
 
-	public String getFullName() {
+	public Long getId() {
+		return id;
+	}
 
-		return this.nombre + "," + this.apellido1 + " " + this.apellido2;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Set<Asignatura> getAsignaturas() {
@@ -159,18 +171,17 @@ public class Profesor implements Serializable {
 		this.asignaturas = asignaturas;
 	}
 
-	public int getDepartamento() {
+	public Departamento getDepartamento() {
 		return departamento;
 	}
 
-	public void setDepartamento(int departamento) {
+	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellido1, apellido2, asignaturas, ciudad, direccion, fecha_nacimiento, id, departamento,
-				nif, nombre, sexo, telefono);
+		return Objects.hash(nif);
 	}
 
 	@Override
@@ -182,21 +193,18 @@ public class Profesor implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Profesor other = (Profesor) obj;
-		return Objects.equals(apellido1, other.apellido1) && Objects.equals(apellido2, other.apellido2)
-				&& Objects.equals(asignaturas, other.asignaturas) && Objects.equals(ciudad, other.ciudad)
-				&& Objects.equals(direccion, other.direccion)
-				&& Objects.equals(fecha_nacimiento, other.fecha_nacimiento) && Objects.equals(id, other.id)
-				&& departamento == other.departamento && Objects.equals(nif, other.nif)
-				&& Objects.equals(nombre, other.nombre) && Objects.equals(sexo, other.sexo)
-				&& Objects.equals(telefono, other.telefono);
+		return Objects.equals(nif, other.nif);
 	}
 
-	@Override
-	public String toString() {
-		return "Profesor [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", apellido1=" + apellido1
-				+ ", apellido2=" + apellido2 + ", ciudad=" + ciudad + ", direccion=" + direccion + ", telefono="
-				+ telefono + ", fecha_nacimiento=" + fecha_nacimiento + ", sexo=" + sexo + ", asignaturas="
-				+ asignaturas + ", departamento=" + departamento + "]";
+	// HELPERS
+	public void addAsignatura(Asignatura asignatura) {
+		this.asignaturas.add(asignatura);
+		asignatura.setProfesor(this);
+	}
+
+	public void removeBook(Asignatura asignatura) {
+		this.asignaturas.remove(asignatura);
+		asignatura.setProfesor(null);
 	}
 
 }

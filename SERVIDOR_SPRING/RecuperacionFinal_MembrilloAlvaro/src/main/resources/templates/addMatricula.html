@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='AddMatricula')"></head>
+<body>
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+			<header th:insert="fragments/parts::menu"></header>
+			<div class="col-8 mt-4">
+				<form th:action="@{/matricula/add}" th:object="${alumnoAsignatura}" method="post">
+					<label for="nombre" class="form-label mt-3">Añadir alumno a: <span th:text="${asignatura.nombre}"></span></label>
+<!-- 					<input class="form-control" name="nombre" id="nombre" type="text" th:field="*{nombre}" required> -->
+					<select name="id_alumno" class="form-select mt-3">
+						<option th:each="a : ${alumnos}" name="alumno" th:value="${alumno}" th:text="${a.nombre}+', '+ ${a.apellido1} +' '+ ${a.apellido2}"></option>
+					</select>
+					
+					<input class="form-control" type="hidden" name="asignatura" th:field="*{asignatura}">
+					
+					<label for="nota" class="form-label mt-3">Nota</label>
+					<input class="form-control" name="nota" id="nota" type="number" th:field="*{nota}" required>
+<!-- 					<h6 class="text-danger" th:if="${error!=null}" th:text="#{'errorGrado'}"></h6> -->
+					<button type="submit" class="btn btn-primary w-100 mt-3">Matricular</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

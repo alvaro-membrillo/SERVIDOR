@@ -13,20 +13,27 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="departamento")
+@Table(name = "departamento")
 public class Departamento {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(unique=true, nullable=false)
+
+	@Column(unique = true, nullable = false)
 	private String nombre;
-	
-	
-	@OneToMany(mappedBy="departamento",cascade=CascadeType.ALL, orphanRemoval=true)
-	private Set<Profesor> profesores = new HashSet<>();
-	
+
+	@OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Profesor> profesor = new HashSet<>();
+
+	public Set<Profesor> getProfesor() {
+		return profesor;
+	}
+
+	public void setProfesor(Set<Profesor> profesor) {
+		this.profesor = profesor;
+	}
+
 	public Departamento() {
 		// TODO Auto-generated constructor stub
 	}
@@ -47,12 +54,4 @@ public class Departamento {
 		this.nombre = nombre;
 	}
 
-	public Set<Profesor> getProfesores() {
-		return profesores;
-	}
-
-	public void setProfesores(Set<Profesor> profesores) {
-		this.profesores = profesores;
-	}
-	
 }

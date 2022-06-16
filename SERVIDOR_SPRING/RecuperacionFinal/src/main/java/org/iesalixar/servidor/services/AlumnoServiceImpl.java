@@ -1,6 +1,7 @@
 package org.iesalixar.servidor.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.iesalixar.servidor.model.Alumno;
 import org.iesalixar.servidor.model.Asignatura;
@@ -13,18 +14,15 @@ public class AlumnoServiceImpl implements AlumnoService {
 
 	@Autowired
 	AlumnoRepository alumRepo;
-	
+
 	@Override
 	public List<Alumno> getAllAlumnos() {
 		return alumRepo.findAll();
 	}
 
 	@Override
-	public List<Alumno> getAlumnosByAsignatura(Asignatura asignatura) {
-		return null;
-//		return alumRepo.findById(null);
-//		return alumRepo.findByAsignatura(asignatura);
-//		return alumRepo.findByAsignatura(asignatura);
+	public Optional<Alumno> findAlumnoById(Long id) {
+		return alumRepo.findById(id);
 	}
 
 }

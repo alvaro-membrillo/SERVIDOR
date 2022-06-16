@@ -6,9 +6,8 @@
 		<div class="row mt-5 justify-content-center">
 			<header th:insert="fragments/parts::menu"></header>
 			<div class="col-12">
-				<h4 class="text-center mt-5">
-					Matrículas de <span th:text="${asignatura.nombre}"></span>
-				</h4>
+				<h3 class="text-center mt-3"
+					th:text="'Matricula de: ' + ${asignatura.nombre}"></h3>
 				<table class="table table-stripped table-hover mt-3">
 					<thead class="table-light">
 						<tr>
@@ -20,14 +19,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="aa : ${alumnosAsignatura}">
-<!-- 							<td th:text="${aa.getAlumno().nombre}"></td> -->
-<!-- 							<td th:text="${aa.getAsignatura().getGrado().nombre}"></td> -->
-							<!-- 							<td th:text="${aa.getAsignatura().getProfesor().nombre}"></td> -->
-							<td></td>
-<!-- 							<td><a -->
-<!-- 								th:href="@{'/matricula/delete?codigo='+${aa.getAsignatura().id}}"><i -->
-<!-- 									class="bi bi-x-circle-fill"></i></a></td> -->
+						<tr th:each="a : ${asignatura.alumnosAsignatura}">
+							<td th:text="${a.getAlumno().nombre}"></td>
+							<td th:text="${a.getAlumno().apellido1}"></td>
+							<td th:text="${a.getAlumno().apellido2}"></td>
+							<td th:text="${a.nota}"></td>
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
+								th:href="@{|/matricula/list/delete?alum=${a.alumno.id}&asig=${asignatura.id}}|"><i
+									class="bi bi-x-square"></i></a></td>
 						</tr>
 					</tbody>
 				</table>

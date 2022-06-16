@@ -7,53 +7,35 @@ import org.iesalixar.servidor.model.Asignatura;
 
 public class AlumnoAsignaturaDTO implements Serializable {
 
-//	private Alumno alumno;
-//	private Asignatura asignatura;
-	private Long grado;
-	private Long asignatura;
-	private Long nota;
+	private Alumno id_alumno;
+	private Asignatura id_asignatura;
+	private int nota;
 
 	public AlumnoAsignaturaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getGrado() {
-		return grado;
+	public Alumno getId_alumno() {
+		return id_alumno;
 	}
 
-	public void setGrado(Long grado) {
-		this.grado = grado;
+	public void setId_alumno(Alumno id_alumno) {
+		this.id_alumno = id_alumno;
 	}
 
-	public Long getAsignatura() {
-		return asignatura;
+	public Asignatura getId_asignatura() {
+		return id_asignatura;
 	}
 
-	public void setAsignatura(Long asignatura) {
-		this.asignatura = asignatura;
+	public void setId_asignatura(Asignatura id_asignatura) {
+		this.id_asignatura = id_asignatura;
 	}
 
-//	public Alumno getAlumno() {
-//		return alumno;
-//	}
-//
-//	public void setAlumno(Alumno alumno) {
-//		this.alumno = alumno;
-//	}
-//
-//	public Asignatura getAsignatura() {
-//		return asignatura;
-//	}
-//
-//	public void setAsignatura(Asignatura asignatura) {
-//		this.asignatura = asignatura;
-//	}
-
-	public Long getNota() {
+	public int getNota() {
 		return nota;
 	}
 
-	public void setNota(Long nota) {
+	public void setNota(int nota) {
 		this.nota = nota;
 	}
 

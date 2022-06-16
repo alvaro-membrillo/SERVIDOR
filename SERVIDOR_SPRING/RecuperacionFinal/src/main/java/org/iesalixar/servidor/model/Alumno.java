@@ -1,7 +1,6 @@
 package org.iesalixar.servidor.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -14,47 +13,46 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="alumno")
+@Table(name = "alumno")
 public class Alumno implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(unique=true,length=9,nullable=true)
+
+	@Column(unique = true, length = 9, nullable = true)
 	private String nif;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String nombre;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String apellido1;
-	
-	@Column(nullable=true)
+
+	@Column(nullable = true)
 	private String apellido2;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String ciudad;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String direccion;
-		
-	@Column(nullable=true)
+
+	@Column(nullable = true)
 	private String telefono;
-	
-	@Column(name="fecha_nacimiento",nullable=false)
-	private Date fechaNacimiento;
-	
-	@Column(nullable=false,length=1)
+
+	@Column(name = "fecha_nacimiento", nullable = false)
+//	@Temporal(TemporalType.DATE)
+	private String fechaNacimiento;
+
+	@Column(nullable = false, length = 1)
 	private String sexo;
-	
-	@OneToMany(mappedBy="alumno",cascade=CascadeType.ALL, orphanRemoval=true)
+
+	@OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<AlumnoAsignatura> alumnoAsignaturas = new HashSet<>();
-	
+
 	public Alumno() {
 		// TODO Auto-generated constructor stub
 	}
@@ -123,11 +121,11 @@ public class Alumno implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -138,15 +136,13 @@ public class Alumno implements Serializable {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	
-	
 
 	public Set<AlumnoAsignatura> getAlumnoAsignaturas() {
 		return alumnoAsignaturas;
 	}
 
-	public void setAlumnoAsignaturas(Set<AlumnoAsignatura> alumnoAsignatura) {
-		this.alumnoAsignaturas = alumnoAsignatura;
+	public void setAlumnoAsignaturas(Set<AlumnoAsignatura> alumnoAsignaturas) {
+		this.alumnoAsignaturas = alumnoAsignaturas;
 	}
 
 	@Override
@@ -165,6 +161,13 @@ public class Alumno implements Serializable {
 		Alumno other = (Alumno) obj;
 		return Objects.equals(id, other.id) && Objects.equals(nif, other.nif);
 	}
-	
-	
+
+//	Helpers
+
+	public void removeNota(Asignatura asignatura) {
+		AlumnoAsignatura alumnoAsignatura = new AlumnoAsignatura();
+		asignatura.getAlumnosAsignatura().remove(alumnoAsignatura);
+		this.alumnoAsignaturas.remove(alumnoAsignatura);
+	}
+
 }

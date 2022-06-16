@@ -6,18 +6,22 @@
 		<div class="row mt-5 justify-content-center">
 			<header th:insert="fragments/parts::menu"></header>
 			<div class="col-8 mt-4">
-				<form th:action="@{/matricula/add}" th:object="${alumnoAsignatura}" method="post">
-					<label for="nombre" class="form-label mt-3">Añadir alumno a: <span th:text="${asignatura.nombre}"></span></label>
+				<form th:action="@{/matricula/add}" th:object="${alumAsigDTO}" method="post">
+				
+				<select style="visibility:hidden" name="asignatura" class="form-select mt-3" th:field="*{id_asignatura}">
+					<option th:each="a : ${asignatura}" th:value="${a.id}" th:text="${a.nombre}"></option>
+				</select>
+				
+					<label for="alumno" class="form-label mt-3">Añadir alumno a: <span th:text="${asignatura.nombre}"></span></label>
 <!-- 					<input class="form-control" name="nombre" id="nombre" type="text" th:field="*{nombre}" required> -->
-					<select name="id_alumno" class="form-select mt-3">
-						<option th:each="a : ${alumnos}" name="alumno" th:value="${alumno}" th:text="${a.nombre}+', '+ ${a.apellido1} +' '+ ${a.apellido2}"></option>
+					<select name="alumno" class="form-select mt-3" th:field="*{id_alumno}">
+						<option th:each="a : ${alumnos}" name="alumno" th:value="${a.id}" th:text="${a.nombre}+', '+ ${a.apellido1} +' '+ ${a.apellido2}"></option>
 					</select>
-					
-					<input class="form-control" type="hidden" name="asignatura" th:field="*{asignatura}">
 					
 					<label for="nota" class="form-label mt-3">Nota</label>
 					<input class="form-control" name="nota" id="nota" type="number" th:field="*{nota}" required>
-<!-- 					<h6 class="text-danger" th:if="${error!=null}" th:text="#{'errorGrado'}"></h6> -->
+					
+					<h4 class="text-danger" th:if="${error!=null}" th:text="${'Matrícula existente'}"></h4>
 					<button type="submit" class="btn btn-primary w-100 mt-3">Matricular</button>
 				</form>
 			</div>
